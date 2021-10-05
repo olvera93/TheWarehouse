@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "471166934832",
+    "project_id": "thewarehouse-91515",
+    "storage_bucket": "thewarehouse-91515.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471166934832:android:168309d7c7d37bdbe732f5",
+        "android_client_info": {
+          "package_name": "org.shop.thewarehouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471166934832-h09eij654kvhj7r90o9u8qitkp11fldq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3hUMXN73n8xB9GPcF_R6LBiYEE9KSdVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471166934832-h09eij654kvhj7r90o9u8qitkp11fldq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

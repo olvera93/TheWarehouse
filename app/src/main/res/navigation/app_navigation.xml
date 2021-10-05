@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navegation">
+
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="org.shop.thewarehouse.ui.loginEmail.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/main_action"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="org.shop.thewarehouse.ui.MainFragment"
+        android:label="MainFragment" />
+</navigation>

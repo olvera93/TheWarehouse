@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">TheWarehouse</string>
+
+    <string name="prefs_file">com.shop.thewarehouse.PREFERENCE_FILE_KEY</string>
+
+
+    <string name="button_home">Inicio</string>
+    <string name="button_profile">Perfil</string>
+
+    <string name="button_logout">Salir</string>
+
+
+    <string name="login">Regístrate en TheWarehouse</string>
+    <string name="register_user">Usar número de teléfono o correo electrónico</string>
+    <string name="phone">Phone</string>
+    <string name="google">Continuar con Google</string>
+
+    <string name="txt_login">Inico Sesión</string>
+    <string name="password">Password</string>
+    <string name="register">Registro</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_user">Usuario</string>
+    <string name="txt_name">Nombre</string>
+    <string name="txt_lastname">Apellidos</string>
+
+
+    <string name="register_login">Iniciar Sesión</string>
+    <string name="have_an_account">¿Ya tienes una cuenta?</string>
+</resources>
