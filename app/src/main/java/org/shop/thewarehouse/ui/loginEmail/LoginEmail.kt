@@ -45,25 +45,8 @@ class LoginEmail: AppCompatActivity() {
                 val password = editTextPassword.text.toString()
 
                 signIn(email, password)
-
-
-
+                
             }
-
-            /*
-            btnRegister.setOnClickListener {
-                it.hideKeyboard()
-
-                btnLogin.visibility = View.GONE
-
-                val email = editTextEmail.text.toString()
-                val password = editTextPassword.text.toString()
-
-                createAccount(email, password)
-
-            }
-
-             */
 
             editTextEmail.doAfterTextChanged {
                 val email = editTextEmail.text.toString()
@@ -85,20 +68,6 @@ class LoginEmail: AppCompatActivity() {
 
 
         }
-    }
-
-    private fun createAccount(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "createUserWithEmail:success")
-                    val user = auth.currentUser
-                    updateUI(user, null)
-                } else {
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    updateUI(null, task.exception)
-                }
-            }
     }
 
     private fun signIn(email: String, password: String) {
