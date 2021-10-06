@@ -1,28 +1,34 @@
 package org.shop.thewarehouse.ui.register
 
+import android.Manifest
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.FirebaseApp
+import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
-import org.shop.thewarehouse.databinding.ActivityMainBinding
 import org.shop.thewarehouse.databinding.ActivityRegisterBinding
-import org.shop.thewarehouse.databinding.FragmentLoginEmailBinding
 import org.shop.thewarehouse.utils.Utility
+import org.shop.thewarehouse.view.CameraActivity
+import org.shop.thewarehouse.view.PHOTO
 
 class Register: AppCompatActivity() {
 
+
+
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
+
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -36,6 +42,8 @@ class Register: AppCompatActivity() {
         val bundle = intent.extras
         val email = bundle?.getString("email")
 
+        val photo = bundle?.getString(PHOTO)
+
         // Guardado de datos
         val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
         prefs.putString("email", email)
@@ -44,7 +52,8 @@ class Register: AppCompatActivity() {
 
         binding.apply {
 
-            btnGuardar.setOnClickListener {
+            btnRegister.setOnClickListener {
+
                 val email = editTextEmail.text.toString()
                 val password = editTextPassword.text.toString()
 
@@ -54,14 +63,12 @@ class Register: AppCompatActivity() {
                         "nombre" to binding.editTextName.text.toString(),
                         "apellido" to binding.editTextLastname.text.toString(),
                         "email" to email,
-                        "password" to password)
+                        "password" to password,
+                        "idPhoto" to photo)
                     )
 
                     createAccount(email, password)
                 }
-
-
-
 
             }
         }
@@ -83,13 +90,14 @@ class Register: AppCompatActivity() {
             }
     }
 
+
     private fun updateUI(user: FirebaseUser?, exception: Exception?) {
         if (exception != null) {
-            binding.btnGuardar.visibility = View.VISIBLE
+            binding.btnRegister.visibility = View.VISIBLE
             Utility.displaySnackBar(binding.root, exception.message.toString(), this, R.color.red)
         } else {
             Utility.displaySnackBar(binding.root, "Register was successful", this, R.color.green)
-            binding.btnGuardar.visibility = View.VISIBLE
+            binding.btnRegister.visibility = View.VISIBLE
         }
     }
 
@@ -100,7 +108,5 @@ class Register: AppCompatActivity() {
     prefs.apply
 
      */
-
-
 
 }

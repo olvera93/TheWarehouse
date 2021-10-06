@@ -1,18 +1,23 @@
 package org.shop.thewarehouse.view
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 import com.google.firebase.FirebaseApp
-import kotlinx.android.synthetic.main.activity_main.*
 import org.shop.thewarehouse.databinding.ActivityMainBinding
 import org.shop.thewarehouse.ui.loginEmail.LoginEmail
-import org.shop.thewarehouse.ui.loginEmail.LoginFragment
 import org.shop.thewarehouse.ui.register.Register
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    companion object{
+        val PERMISSION_ID = 34
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +31,13 @@ class MainActivity : AppCompatActivity() {
     private fun handleClick() {
 
         binding.apply {
+
             btnRegisterUser.setOnClickListener {
-                val intent = Intent(applicationContext, Register::class.java)
-                startActivity(intent)
+                if (checkCameraPermission()){
+                    openCamera()
+                } else {
+                    requestPermission()
+                }
             }
 
             btnRegisterLogin.setOnClickListener {
@@ -37,7 +46,38 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+    }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
+        if (requestCode == PERMISSION_ID) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openCamera()
+            }
+        }
+    }
+
+    private fun openCamera(){
+        val intent = Intent(this, CameraActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.CAMERA),
+            PERMISSION_ID
+        )
+
+    }
+
+    private fun checkCameraPermission(): Boolean {
+        return ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
+                PackageManager.PERMISSION_GRANTED
     }
 }

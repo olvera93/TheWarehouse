@@ -2,20 +2,12 @@ package org.shop.thewarehouse.ui.loginEmail
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import org.shop.thewarehouse.databinding.FragmentLoginEmailBinding
 import org.shop.thewarehouse.utils.Utility.hideKeyboard
-import androidx.navigation.fragment.findNavController
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth

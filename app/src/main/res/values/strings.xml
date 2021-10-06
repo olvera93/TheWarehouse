@@ -23,6 +23,9 @@
     <string name="txt_name">Nombre</string>
     <string name="txt_lastname">Apellidos</string>
 
+    <string name="foto_de_perfil">Foto de perfil</string>
+    <string name="ponga_su_mejor_foto">Foto</string>
+    <string name="su_foto_le_ayuda_para_qu_sus_contactos_pueda_identificarle_m_s_r_pido">Hola</string>
 
     <string name="register_login">Iniciar Sesión</string>
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
