@@ -10,7 +10,7 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('D:\\Escritorio\\debug\\debug.keystore')
+            storeFile file('D:\\Escritorio\\TheWarehouse\\debug\\debug.keystore')
             storePassword 'android'
             keyAlias 'android'
             keyPassword 'android'

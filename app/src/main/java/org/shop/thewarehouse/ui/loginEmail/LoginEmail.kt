@@ -45,7 +45,7 @@ class LoginEmail: AppCompatActivity() {
                 val password = editTextPassword.text.toString()
 
                 signIn(email, password)
-                
+
             }
 
             editTextEmail.doAfterTextChanged {
