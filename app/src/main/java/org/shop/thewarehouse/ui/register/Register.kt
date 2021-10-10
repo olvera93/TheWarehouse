@@ -54,14 +54,14 @@ class Register: AppCompatActivity() {
 
             btnRegister.setOnClickListener {
 
-                val email = editTextEmail.text.toString()
-                val password = editTextPassword.text.toString()
+                val email = textEmail.text.toString()
+                val password = textPassword.text.toString()
 
                 if (email != null) {
                     db.collection("users").document(email).set(
-                        hashMapOf("usuario" to binding.editTextUser.text.toString(),
-                        "nombre" to binding.editTextName.text.toString(),
-                        "apellido" to binding.editTextLastname.text.toString(),
+                        hashMapOf("usuario" to binding.textUserName.text.toString(),
+                        "nombre" to binding.textUserFullName.text.toString(),
+                        "apellido" to binding.textUserLastName.text.toString(),
                         "email" to email,
                         "password" to password,
                         "idPhoto" to photo)

@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.TheWarehouse">
         
         <provider
             android:authorities="org.shop.thewarehouse"
@@ -26,17 +26,20 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider"></meta-data>
+                android:resource="@xml/fileprovider" />
         </provider>
 
 
         
         <activity
             android:name=".view.CameraActivity"
-            android:exported="true" />
+            android:exported="true"
+            />
         <activity
             android:name=".view.MainActivity"
-            android:exported="true">
+            android:exported="true"
+
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

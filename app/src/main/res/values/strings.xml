@@ -14,6 +14,7 @@
     <string name="register_user">Usar número de teléfono o correo electrónico</string>
     <string name="phone">Phone</string>
     <string name="google">Continuar con Google</string>
+    <string name="continue_register">Continuar</string>
 
     <string name="txt_login">Inico Sesión</string>
     <string name="password">Password</string>
