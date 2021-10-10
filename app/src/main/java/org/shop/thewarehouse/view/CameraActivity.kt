@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.camera.core.*
 import androidx.core.content.FileProvider
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.android.synthetic.main.fragment_login_email.*
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityCameraBinding
@@ -29,6 +30,7 @@ class CameraActivity : AppCompatActivity() {
     companion object{
         val PERMISSION_ID = 34
         val FILE_NAME = "${System.currentTimeMillis()}"
+        private const val TAG = "CameraActivity"
     }
 
     private val executor = Executors.newSingleThreadExecutor()
@@ -60,6 +62,8 @@ class CameraActivity : AppCompatActivity() {
                 val fileProvider = FileProvider.getUriForFile(applicationContext, "org.shop.thewarehouse", photoFile)
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
 
+
+
                 if (takePictureIntent.resolveActivity(packageManager) != null){
                     startActivityForResult(takePictureIntent, PERMISSION_ID)
                 } else {
@@ -74,6 +78,8 @@ class CameraActivity : AppCompatActivity() {
             btnNext.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString(PHOTO, photoFile.name)
+
+
                 val intent = Intent(applicationContext, Register::class.java).apply {
                     putExtras(bundle)
                 }
@@ -97,9 +103,15 @@ class CameraActivity : AppCompatActivity() {
         if (requestCode == PERMISSION_ID && resultCode == Activity.RESULT_OK){
             val takenImage = BitmapFactory.decodeFile(photoFile.absolutePath)
                 binding.shapeableImageView.setImageBitmap(takenImage)
-            Toast.makeText(applicationContext, photoFile.absolutePath, Toast.LENGTH_LONG).show()
             Log.d("PATH", photoFile.absolutePath)
         } else {
+            if (resultCode == Activity.RESULT_CANCELED) {
+                try {
+                    Log.e(TAG,"Not photo: " + photoFile.exists())
+                } catch (e: Exception){ FirebaseCrashlytics.getInstance().recordException(e) }
+                binding.btnNext.visibility = View.INVISIBLE
+                binding.btnTakePhoto.visibility = View.VISIBLE
+            }
             super.onActivityResult(requestCode, resultCode, data)
 
         }
