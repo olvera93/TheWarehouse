@@ -11,6 +11,13 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -18,13 +25,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityRegisterBinding
+import org.shop.thewarehouse.ui.MainFragment
 import org.shop.thewarehouse.utils.Utility
 import org.shop.thewarehouse.view.CameraActivity
 import org.shop.thewarehouse.view.PHOTO
 
 class Register: AppCompatActivity() {
-
-
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
@@ -54,21 +60,45 @@ class Register: AppCompatActivity() {
 
             btnRegister.setOnClickListener {
 
-                val email = textEmail.text.toString()
-                val password = textPassword.text.toString()
 
-                if (email != null) {
-                    db.collection("users").document(email).set(
-                        hashMapOf("usuario" to binding.textUserName.text.toString(),
-                        "nombre" to binding.textUserFullName.text.toString(),
-                        "apellido" to binding.textUserLastName.text.toString(),
-                        "email" to email,
-                        "password" to password,
-                        "idPhoto" to photo)
-                    )
+                when {
+                    textUserName.text.isNullOrEmpty() -> {
+                        textUserName.error = getString(R.string.empty_field)
+                    }
+                    textUserFullName.text.isNullOrEmpty() -> {
+                        textUserFullName.error = getString(R.string.empty_field)
+                    }
+                    textUserLastName.text.isNullOrEmpty() -> {
+                        textUserLastName.error = getString(R.string.empty_field)
+                    }
+                    textEmail.text.isNullOrEmpty() -> {
+                        textEmail.error = getString(R.string.empty_field)
+                    }
+                    textPassword.text.isNullOrEmpty() -> {
+                        textPassword.error = getString(R.string.empty_field)
+                    }
+                    else -> {
+                        val email = textEmail.text.toString()
+                        val password = textPassword.text.toString()
+                        if (email != null) {
+                            db.collection("users").document(email).set(
+                                hashMapOf(
+                                    "usuario" to textUserName.text.toString(),
+                                    "nombre" to textUserFullName.text.toString(),
+                                    "apellido" to textUserLastName.text.toString(),
+                                    "email" to email,
+                                    "password" to password,
+                                    "idPhoto" to photo
+                                )
+                            )
+                        }
+                        createAccount(email, password)
 
-                    createAccount(email, password)
+                    }
                 }
+
+
+
 
             }
         }
@@ -100,6 +130,8 @@ class Register: AppCompatActivity() {
             binding.btnRegister.visibility = View.VISIBLE
         }
     }
+
+
 
     /*
     // Borrado de datos

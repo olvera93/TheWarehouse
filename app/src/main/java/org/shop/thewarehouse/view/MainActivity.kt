@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             btnRegisterUser.setOnClickListener {
                 if (checkCameraPermission()){
                     openCamera()
+                    overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
                 } else {
                     requestPermission()
                 }
@@ -78,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             btnRegisterLogin.setOnClickListener {
                 val intent = Intent(applicationContext, LoginEmail::class.java)
                 startActivity(intent)
+                overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
             }
 
             btnGoogle.setOnClickListener {

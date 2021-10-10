@@ -1,6 +1,7 @@
 package org.shop.thewarehouse.ui.loginEmail
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
+import org.shop.thewarehouse.ui.MainFragment
 import org.shop.thewarehouse.utils.Utility
 
 class LoginEmail: AppCompatActivity() {
@@ -45,6 +47,8 @@ class LoginEmail: AppCompatActivity() {
                 val password = editTextPassword.text.toString()
 
                 signIn(email, password)
+
+                navigateToMain()
 
             }
 
@@ -92,6 +96,11 @@ class LoginEmail: AppCompatActivity() {
             Utility.displaySnackBar(binding.root, "Login was successful", this, R.color.green)
             binding.btnLogin.visibility = View.VISIBLE
         }
+    }
+
+    private fun navigateToMain() {
+
+
     }
 
 

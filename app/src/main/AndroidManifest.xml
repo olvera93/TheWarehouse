@@ -4,12 +4,10 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
 
     <application
         android:allowBackup="true"
@@ -18,10 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheWarehouse">
-        
+
+
         <provider
-            android:authorities="org.shop.thewarehouse"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="org.shop.thewarehouse"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -29,17 +28,12 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-
-        
         <activity
             android:name=".view.CameraActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".view.MainActivity"
-            android:exported="true"
-
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,6 +42,7 @@
         </activity>
         <activity android:name=".ui.loginEmail.LoginEmail" />
         <activity android:name=".ui.register.Register" />
+
     </application>
 
 </manifest>

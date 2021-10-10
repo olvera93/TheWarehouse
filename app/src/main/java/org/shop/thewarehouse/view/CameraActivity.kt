@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.camera.core.*
 import androidx.core.content.FileProvider
 import kotlinx.android.synthetic.main.fragment_login_email.*
+import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityCameraBinding
 import org.shop.thewarehouse.ui.register.Register
 import java.io.File
@@ -77,6 +78,8 @@ class CameraActivity : AppCompatActivity() {
                     putExtras(bundle)
                 }
                 startActivity(intent)
+                overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
+
             }
 
         }
