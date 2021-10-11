@@ -12,14 +12,18 @@
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/font/roboto.xml" value="0.15885416666666666" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/activity_camera.xml" value="0.25" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/activity_main_navigation.xml" value="0.17447916666666666" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/fragmen_login_email.xml" value="0.1" />
+        <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/fragment_dashboard.xml" value="0.15" />
+        <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/fragment_home.xml" value="0.15" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/fragment_login_email.xml" value="0.2" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/fragment_main.xml" value="0.1" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/fragment_photo.xml" value="0.259375" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/layout/register_fragment.xml" value="0.21467391304347827" />
-        <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+        <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/menu/button_nav_menu.xml" value="0.15" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/xml/fileprovider.xml" value="0.1" />
       </map>
     </option>

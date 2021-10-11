@@ -28,6 +28,10 @@
 
     <string name="register_login">Iniciar Sesión</string>
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
-    
+
     <string name="empty_field">No puede estar vacío</string>
+    <string name="title_activity_main_navigation">MainNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

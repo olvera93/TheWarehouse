@@ -1,0 +1,41 @@
+<resources>
+
+    <string name="app_name">TheWarehouse</string>
+
+    <string name="prefs_file">com.shop.thewarehouse.PREFERENCE_FILE_KEY</string>
+
+
+    <string name="button_home">Inicio</string>
+    <string name="button_profile">Profile</string>
+
+    <string name="button_logout">Logout</string>
+
+
+    <string name="login">Sign up for TheWarehouse</string>
+    <string name="register_user">Use phone number or email</string>
+    <string name="phone">Phone</string>
+    <string name="google">Continue with Google</string>
+    <string name="continue_register">Continue</string>
+
+    <string name="txt_login">Log in</string>
+    <string name="txt_email">Email<font color='#FF0000'>* </font></string>
+    <string name="txt_user">User<font color='#FF0000'>* </font></string>
+    <string name="txt_name">Name<font color='#FF0000'>* </font></string>
+    <string name="txt_lastname">Last Name<font color='#FF0000'>* </font></string>
+    <string name="txt_password">Password<font color='#FF0000'>* </font></string>
+    <string name="foto_de_perfil">Profile photo</string>
+    <string name="ponga_su_mejor_foto">Photo</string>
+    <string name="su_foto_le_ayuda_para_qu_sus_contactos_pueda_identificarle_m_s_r_pido">Hola</string>
+
+    <string name="register_login">Log in</string>
+    <string name="have_an_account">Already have an account?</string>
+
+    <string name="empty_field">Can not be empty</string>
+    <string name="title_activity_main_navigation">MainNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+
+</resources>

@@ -14,8 +14,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
-import org.shop.thewarehouse.ui.MainFragment
 import org.shop.thewarehouse.utils.Utility
+import org.shop.thewarehouse.view.NavigationActivity
 
 class LoginEmail: AppCompatActivity() {
 
@@ -43,8 +43,8 @@ class LoginEmail: AppCompatActivity() {
 
                 btnLogin.visibility = View.GONE
 
-                val email = editTextEmail.text.toString()
-                val password = editTextPassword.text.toString()
+                val email = textEmail.text.toString()
+                val password = textPassword.text.toString()
 
                 signIn(email, password)
 
@@ -52,18 +52,18 @@ class LoginEmail: AppCompatActivity() {
 
             }
 
-            editTextEmail.doAfterTextChanged {
-                val email = editTextEmail.text.toString()
-                val password = editTextPassword.text.toString()
+            textEmail.doAfterTextChanged {
+                val email = textEmail.text.toString()
+                val password = textPassword.text.toString()
 
                 btnLogin.isEnabled = email.isNotEmpty() && password.isNotEmpty()
                 //btnRegister.isEnabled = email.isNotEmpty() && password.isNotEmpty()
 
             }
 
-            editTextPassword.doAfterTextChanged {
-                val email = editTextEmail.text.toString()
-                val password = editTextPassword.text.toString()
+            textPassword.doAfterTextChanged {
+                val email = textEmail.text.toString()
+                val password = textPassword.text.toString()
 
                 btnLogin.isEnabled = email.isNotEmpty() && password.isNotEmpty()
                 //btnRegister.isEnabled = email.isNotEmpty() && password.isNotEmpty()
@@ -99,7 +99,8 @@ class LoginEmail: AppCompatActivity() {
     }
 
     private fun navigateToMain() {
-
+        val intent = Intent(applicationContext, NavigationActivity::class.java)
+        startActivity(intent)
 
     }
 

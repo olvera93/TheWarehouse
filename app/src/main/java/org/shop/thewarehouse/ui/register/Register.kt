@@ -1,23 +1,13 @@
 package org.shop.thewarehouse.ui.register
 
-import android.Manifest
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -25,9 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityRegisterBinding
-import org.shop.thewarehouse.ui.MainFragment
 import org.shop.thewarehouse.utils.Utility
-import org.shop.thewarehouse.view.CameraActivity
+import org.shop.thewarehouse.view.NavigationActivity
 import org.shop.thewarehouse.view.PHOTO
 
 class Register: AppCompatActivity() {
@@ -93,6 +82,7 @@ class Register: AppCompatActivity() {
                             )
                         }
                         createAccount(email, password)
+                        navigateToMain()
 
                     }
                 }
@@ -132,6 +122,11 @@ class Register: AppCompatActivity() {
     }
 
 
+    private fun navigateToMain() {
+        val intent = Intent(applicationContext, NavigationActivity::class.java)
+        startActivity(intent)
+
+    }
 
     /*
     // Borrado de datos

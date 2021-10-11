@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity() {
             btnGoogle.setOnClickListener {
                 val signInIntent = googleSignInClient.signInIntent
                 startActivityForResult(signInIntent, RC_SIGN_IN)
+                navigateToMain()
             }
 
         }
@@ -172,5 +173,11 @@ class MainActivity : AppCompatActivity() {
     private fun checkCameraPermission(): Boolean {
         return ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
                 PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun navigateToMain() {
+        val intent = Intent(applicationContext, NavigationActivity::class.java)
+        startActivity(intent)
+
     }
 }
