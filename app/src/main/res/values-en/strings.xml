@@ -12,7 +12,7 @@
 
 
     <string name="login">Sign up for TheWarehouse</string>
-    <string name="register_user">Use phone number or email</string>
+    <string name="register_user">Use email</string>
     <string name="phone">Phone</string>
     <string name="google">Continue with Google</string>
     <string name="continue_register">Continue</string>

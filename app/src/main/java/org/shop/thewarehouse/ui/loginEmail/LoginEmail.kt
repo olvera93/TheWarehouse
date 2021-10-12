@@ -12,6 +12,7 @@ import org.shop.thewarehouse.utils.Utility.hideKeyboard
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.utils.Utility
@@ -29,7 +30,8 @@ class LoginEmail: AppCompatActivity() {
         binding = FragmentLoginEmailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = Firebase.auth
+
+        auth= FirebaseAuth.getInstance()
 
         handleClick()
     }
@@ -48,7 +50,7 @@ class LoginEmail: AppCompatActivity() {
 
                 signIn(email, password)
 
-                navigateToMain()
+
 
             }
 
@@ -81,6 +83,11 @@ class LoginEmail: AppCompatActivity() {
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user, null)
+                    val intent = Intent(applicationContext, NavigationActivity::class.java)
+                    intent.putExtra("email",email)
+                    startActivity(intent)
+                    finish()
+
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     task.exception?.let { updateUI(null, it)}
@@ -96,12 +103,6 @@ class LoginEmail: AppCompatActivity() {
             Utility.displaySnackBar(binding.root, "Login was successful", this, R.color.green)
             binding.btnLogin.visibility = View.VISIBLE
         }
-    }
-
-    private fun navigateToMain() {
-        val intent = Intent(applicationContext, NavigationActivity::class.java)
-        startActivity(intent)
-
     }
 
 

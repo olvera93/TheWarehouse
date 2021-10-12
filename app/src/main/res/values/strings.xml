@@ -11,7 +11,7 @@
 
 
     <string name="login">Regístrate en TheWarehouse</string>
-    <string name="register_user">Usar número de teléfono o correo electrónico</string>
+    <string name="register_user">Usar correo electrónico</string>
     <string name="phone">Phone</string>
     <string name="google">Continuar con Google</string>
     <string name="continue_register">Continuar</string>

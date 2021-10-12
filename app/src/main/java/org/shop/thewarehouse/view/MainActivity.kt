@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             btnGoogle.setOnClickListener {
                 val signInIntent = googleSignInClient.signInIntent
                 startActivityForResult(signInIntent, RC_SIGN_IN)
-                navigateToMain()
+
             }
 
         }
@@ -121,6 +121,12 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
                     updateUI(user, null)
+                    val intent = Intent(applicationContext, NavigationActivity::class.java)
+                    intent.putExtra("email",idToken)
+                    startActivity(intent)
+                    overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
+                    finish()
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -175,9 +181,4 @@ class MainActivity : AppCompatActivity() {
                 PackageManager.PERMISSION_GRANTED
     }
 
-    private fun navigateToMain() {
-        val intent = Intent(applicationContext, NavigationActivity::class.java)
-        startActivity(intent)
-
-    }
 }

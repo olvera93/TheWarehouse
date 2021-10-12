@@ -15,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityRegisterBinding
+import org.shop.thewarehouse.ui.loginEmail.LoginEmail
 import org.shop.thewarehouse.utils.Utility
 import org.shop.thewarehouse.view.NavigationActivity
 import org.shop.thewarehouse.view.PHOTO
@@ -23,26 +24,25 @@ class Register: AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
 
-    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        auth = Firebase.auth
 
+        auth= FirebaseAuth.getInstance()
+
+        db= FirebaseFirestore.getInstance()
         // Setup
         val bundle = intent.extras
         val email = bundle?.getString("email")
 
         val photo = bundle?.getString(PHOTO)
 
-        // Guardado de datos
-        val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-        prefs.putString("email", email)
-        prefs.apply()
+
 
 
         binding.apply {
@@ -80,9 +80,11 @@ class Register: AppCompatActivity() {
                                     "idPhoto" to photo
                                 )
                             )
+                            createAccount(email, password)
+
                         }
-                        createAccount(email, password)
-                        navigateToMain()
+
+
 
                     }
                 }
@@ -103,6 +105,12 @@ class Register: AppCompatActivity() {
                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user, null)
+                    val intent = Intent(applicationContext, NavigationActivity::class.java)
+                    intent.putExtra("email",email)
+                    startActivity(intent)
+                    overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
+                    finish()
+
                 } else {
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
                     updateUI(null, task.exception)
@@ -120,20 +128,5 @@ class Register: AppCompatActivity() {
             binding.btnRegister.visibility = View.VISIBLE
         }
     }
-
-
-    private fun navigateToMain() {
-        val intent = Intent(applicationContext, NavigationActivity::class.java)
-        startActivity(intent)
-
-    }
-
-    /*
-    // Borrado de datos
-    val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-    prefs.clear()
-    prefs.apply
-
-     */
 
 }
