@@ -39,7 +39,6 @@ class NavigationActivity: AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
         if(isLogin=="1") {
             var email=intent.getStringExtra("email")
             if(email!=null) {
@@ -59,20 +58,7 @@ class NavigationActivity: AppCompatActivity() {
         }
 
 
-        binding.apply {
-
-            logoutButton.setOnClickListener {
-                sharedPref.edit().clear().commit()
-                val intent = Intent(applicationContext,MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-
-        }
-
     }
-
-
 
     private fun setText(email:String?) {
         db= FirebaseFirestore.getInstance()
@@ -80,12 +66,10 @@ class NavigationActivity: AppCompatActivity() {
             db.collection("users").document(email).get()
                 .addOnSuccessListener {
                         tasks->
-                    binding.prueba.text =tasks.get("email").toString()
+                    tasks.get("email").toString()
 
                 }
         }
 
     }
-
-
 }

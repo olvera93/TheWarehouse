@@ -38,18 +38,13 @@ class Register: AppCompatActivity() {
         db= FirebaseFirestore.getInstance()
         // Setup
         val bundle = intent.extras
-        val email = bundle?.getString("email")
 
         val photo = bundle?.getString(PHOTO)
-
-
 
 
         binding.apply {
 
             btnRegister.setOnClickListener {
-
-
                 when {
                     textUserName.text.isNullOrEmpty() -> {
                         textUserName.error = getString(R.string.empty_field)
@@ -69,29 +64,27 @@ class Register: AppCompatActivity() {
                     else -> {
                         val email = textEmail.text.toString()
                         val password = textPassword.text.toString()
-                        if (email != null) {
-                            db.collection("users").document(email).set(
-                                hashMapOf(
-                                    "usuario" to textUserName.text.toString(),
-                                    "nombre" to textUserFullName.text.toString(),
-                                    "apellido" to textUserLastName.text.toString(),
-                                    "email" to email,
-                                    "password" to password,
-                                    "idPhoto" to photo
+                        if (textPassword.length() >= 6) {
+                            if (email != null) {
+                                db.collection("users").document(email).set(
+                                    hashMapOf(
+                                        "usuario" to textUserName.text.toString(),
+                                        "nombre" to textUserFullName.text.toString(),
+                                        "apellido" to textUserLastName.text.toString(),
+                                        "email" to email,
+                                        "password" to password,
+                                        "idPhoto" to photo
+                                    )
                                 )
-                            )
-                            createAccount(email, password)
+                                createAccount(email, password)
+                            }
+                        } else {
+                            Utility.displaySnackBar(binding.root, getString(R.string.password_error), applicationContext, R.color.red)
 
                         }
 
-
-
                     }
                 }
-
-
-
-
             }
         }
 
@@ -124,7 +117,7 @@ class Register: AppCompatActivity() {
             binding.btnRegister.visibility = View.VISIBLE
             Utility.displaySnackBar(binding.root, exception.message.toString(), this, R.color.red)
         } else {
-            Utility.displaySnackBar(binding.root, "Register was successful", this, R.color.green)
+            Utility.displaySnackBar(binding.root, getString(R.string.registe_successful), this, R.color.green)
             binding.btnRegister.visibility = View.VISIBLE
         }
     }

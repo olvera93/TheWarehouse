@@ -31,6 +31,9 @@
     <string name="have_an_account">Already have an account?</string>
 
     <string name="empty_field">Can not be empty</string>
+    <string name="registe_successful">Register was successful</string>
+    <string name="password_error">Password must have more than 6 characters</string>
+
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

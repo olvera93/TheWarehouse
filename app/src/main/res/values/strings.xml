@@ -30,6 +30,10 @@
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
 
     <string name="empty_field">No puede estar vacío</string>
+    <string name="registe_successful">Registro fue exitoso</string>
+    <string name="password_error">Contraseña debe de tener mas de 6 caracteres</string>
+
+
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
