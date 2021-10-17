@@ -19,7 +19,8 @@
         <activity
             android:name=".view.NavigationActivity"
             android:exported="true"
-            android:theme="@style/AppTheme"
+            android:theme="@style/SplashTheme"
+
             >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
