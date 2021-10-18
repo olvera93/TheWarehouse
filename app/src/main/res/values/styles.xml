@@ -18,10 +18,16 @@
         </item>
     </style>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <item name="colorPrimary">#E91E63</item>
         <item name="colorPrimaryDark">#E91E63</item>
         <item name="colorAccent">#E91E63</item>
+    </style>
+
+
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 
 </resources>

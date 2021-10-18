@@ -19,6 +19,8 @@ class NavigationActivity: AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainNavigationBinding.inflate(layoutInflater)

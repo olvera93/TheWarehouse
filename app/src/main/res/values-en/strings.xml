@@ -34,6 +34,17 @@
     <string name="registe_successful">Register was successful</string>
     <string name="password_error">Password must have more than 6 characters</string>
 
+
+
+    <!-- Textos para la push simple -->
+    <string name="simple_title">WareHouse</string>
+    <string name="large_text">For being a new user, we will give you a 10% discount on your first purchase.
+    Code: WAREHOUSE-10, I hope you enjoy your purchases.</string>
+
+    <!-- CANAL NOTIFICACIONES -->
+    <string name="channel_shop">Warehouse</string>
+    <string name="shop_description">Notifications about new users</string>
+
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

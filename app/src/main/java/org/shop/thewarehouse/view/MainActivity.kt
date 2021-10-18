@@ -57,6 +57,9 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
+        with(binding.animationView) {
+            setMinAndMaxFrame(30, 60)
+        }
 
         handleClick()
     }
@@ -71,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 if (checkCameraPermission()){
                     openCamera()
                     overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
+                    finish()
                 } else {
                     requestPermission()
                 }
