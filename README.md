@@ -39,14 +39,13 @@
 ##  🛠️ Funcionalidad
 
 
-The Warehouse es una plataforma de tecnología. En donde nuestra app para smartphones Android conecta vendedores y usuarios. Donde el usuario será posible de comprar los productos de su agrado de nuestro menú de productos y vendedores
+The Warehouse es una app de e-commerce para smartphones Android, en donde se conectan vendedores y compradores, es decir, los usuarios podrán tanto comprar y/o vender productos de su agrado.
 
 En la aplicación nos mostrara los datos del usuario y la lista de productos donde el usuario seleccionara alguno y desplegara los detalles de este.
 
 ###  :clipboard: Descripción
 
-Este proyecto se basará en las distintas aplicaciones de movilidad ya existentes, como lo son Amazon, Mercado Libre y Aliexpres: mismas que solucionan la necesidad de contar con una plataforma que tenga a la mano un catalogo de productos al alcance de nuestro teléfono
-que, además sea seguro, garantice la economía del usuario y represente una mejor experiencia de compra venta.
+TheWarehouse es una aplicación de e-commerce que ayuda a que las personas encuentren una gran variedad de productos accesibles, ya que es una app intermediaria que conecta compradores con vendedores.
 
 ##  :notebook: Especificaciones
 
