@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "product_cart")
+@Entity(tableName="products")
 @Parcelize
 data class Product(
     @PrimaryKey(autoGenerate = true) val localId: Int,
@@ -14,5 +14,5 @@ data class Product(
     val price: Float,
     val description: String,
     val category: String,
-    val image: String,
-): Parcelable
+    val image: String
+) : Parcelable
