@@ -19,11 +19,12 @@
 
         <TextView
             android:id="@+id/product_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
             android:text="@{product.title}"
             android:textAppearance="?attr/textAppearanceListItemSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline2"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive" />
@@ -36,7 +37,8 @@
             android:text="@{Float.toString(product.price)}"
             android:textAppearance="?attr/textAppearanceListItem"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@+id/product_name"
+            app:layout_constraintStart_toStartOf="@+id/product_name"
             app:layout_constraintTop_toBottomOf="@id/product_name"
             tools:text="114" />
 
