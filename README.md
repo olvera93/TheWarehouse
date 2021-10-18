@@ -80,8 +80,8 @@ El código a crear buscará desarrollar cada uno de los temas vistos en las sesi
 
 ##  💻Proyecto Kotlin Fundamentals e Intermedio
 
-[Kotlin Fundamentals](https://github.com/olvera93/Santander_Kotlin_Proyecto.git)
-[Kotlin Intermedio](https://github.com/olvera93/AndroidStudio_Carpool)
+* [Kotlin Fundamentals](https://github.com/olvera93/Santander_Kotlin_Proyecto.git)
+* [Kotlin Intermedio](https://github.com/olvera93/AndroidStudio_Carpool)
 
 <footer>
 
