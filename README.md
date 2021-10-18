@@ -12,7 +12,7 @@
  - El usuario puede navegar entre pantallas de una manera intuitiva con
    la implementación de NavBar
  - Se agrego compatibilidad con temas Dark y Light
- - Se añadieron notificaciones (push y Firebase cloud messaging)
+ - Se añadieron notificaciones (push notifications)
  - El usuario se puede registrar mediante Firebase Authentication con
    correo o iniciando sesión mediante una cuenta de Google
  - Se podrá monitorear errores de la aplicación mediante Crashlytics Se
@@ -75,10 +75,6 @@ El código a crear buscará desarrollar cada uno de los temas vistos en las sesi
 
 </div>
 
-##  💻Proyecto Kotlin Fundamentals e Intermedio
-
-* [Kotlin Fundamentals](https://github.com/olvera93/Santander_Kotlin_Proyecto.git)
-* [Kotlin Intermedio](https://github.com/olvera93/AndroidStudio_Carpool)
 
 <footer>
 
@@ -92,7 +88,7 @@ El código a crear buscará desarrollar cada uno de los temas vistos en las sesi
 
 * Stuart [![Web](https://img.shields.io/badge/GitHub-StuartGa-14a1f0?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)](https://github.com/StuartGa)
 
-<p><br /> &copy; Equipo 02 - Android Avanzado - Santander - 2021
+<p><br /> &copy; Equipo 01 - Android Avanzado - Santander - 2021
 
 
 
