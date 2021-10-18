@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -163,7 +164,7 @@ class Register: AppCompatActivity() {
             .setColor(ContextCompat.getColor(this, R.color.red))
             .setContentTitle(getString(R.string.simple_title))
             .setContentText(getString(R.string.large_text))
-        //.setLargeIcon(getDrawable(R.mipmap.warehouse)?.toBitmap())
+            .setLargeIcon(getDrawable(R.mipmap.thewarehouse)?.toBitmap())
             .setStyle(NotificationCompat.BigTextStyle()
                 .bigText(getString(R.string.large_text)))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)

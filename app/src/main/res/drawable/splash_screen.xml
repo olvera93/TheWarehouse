@@ -3,7 +3,7 @@
 
     <item android:drawable="@color/white" />
     <item>
-        <bitmap android:src="@mipmap/carpool"
+        <bitmap android:src="@mipmap/thewarehouse"
             android:gravity="center"/>
     </item>
 

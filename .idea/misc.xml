@@ -29,6 +29,15 @@
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/menu/button_nav_menu.xml" value="0.15" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.165625" />
         <entry key="..\:/Escritorio/TheWarehouse/app/src/main/res/xml/fileprovider.xml" value="0.1" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/drawable/splash_screen.xml" value="0.2203125" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/layout/fragment_login_email.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
+        <entry key="..\:/Users/Marco Antonio/Documents/GitHub/TheWarehouse/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2203125" />
       </map>
     </option>
   </component>
