@@ -19,6 +19,8 @@ class NavigationActivity: AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainNavigationBinding.inflate(layoutInflater)
@@ -33,12 +35,11 @@ class NavigationActivity: AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_profile
+                R.id.navigation_home, R.id.navigation_notifications, R.id.navigation_profile
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
 
         if(isLogin=="1") {
             var email=intent.getStringExtra("email")
@@ -59,20 +60,7 @@ class NavigationActivity: AppCompatActivity() {
         }
 
 
-        binding.apply {
-
-            logoutButton.setOnClickListener {
-                sharedPref.edit().clear().commit()
-                val intent = Intent(applicationContext,MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-
-        }
-
     }
-
-
 
     private fun setText(email:String?) {
         db= FirebaseFirestore.getInstance()
@@ -80,12 +68,10 @@ class NavigationActivity: AppCompatActivity() {
             db.collection("users").document(email).get()
                 .addOnSuccessListener {
                         tasks->
-                    binding.prueba.text =tasks.get("email").toString()
+                    tasks.get("email").toString()
 
                 }
         }
 
     }
-
-
 }

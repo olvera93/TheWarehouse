@@ -86,6 +86,7 @@ class LoginEmail: AppCompatActivity() {
                     val intent = Intent(applicationContext, NavigationActivity::class.java)
                     intent.putExtra("email",email)
                     startActivity(intent)
+                    overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
                     finish()
 
                 } else {

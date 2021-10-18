@@ -30,8 +30,23 @@
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
 
     <string name="empty_field">No puede estar vacío</string>
+    <string name="registe_successful">Registro fue exitoso</string>
+    <string name="password_error">Contraseña debe de tener mas de 6 caracteres</string>
+
+    <!-- Textos para la push simple -->
+    <string name="simple_title">WareHouse</string>
+    <string name="large_text">Por ser nuevo usuario, te daremos un descuento del 10% en tu primera compra.
+    Código: WAREHOUSE-10, espero disfrutes tus compras.</string>
+
+    <!-- CANAL NOTIFICACIONES -->
+    <string name="channel_shop">Warehouse</string>
+    <string name="shop_description">Notificaciones acerca de nuevos usuarios</string>
+
+
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="product_list_title">Nuestros mejores productos</string>
 </resources>

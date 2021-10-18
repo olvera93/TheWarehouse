@@ -33,7 +33,6 @@ class CameraActivity : AppCompatActivity() {
         private const val TAG = "CameraActivity"
     }
 
-    private val executor = Executors.newSingleThreadExecutor()
     private lateinit var binding: ActivityCameraBinding
     lateinit var photoFile: File
 
