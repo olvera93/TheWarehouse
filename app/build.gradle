@@ -90,8 +90,8 @@ dependencies {
     // Room
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
-    implementation 'androidx.room:room-runtime:2.2.5'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    //implementation 'androidx.room:room-runtime:2.2.5'
+    //implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
     // Networking con Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
