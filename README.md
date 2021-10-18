@@ -5,7 +5,7 @@
 
 ##  :wave: Bienvenid@s
 
-#  Nuevas funcionalidades 🚗
+#  Nuevas funcionalidades 🛒
 
  - Los datos del usuario se guardan en una base de datos de manera local
    (ROOM) y nube (Firebase)
