@@ -1,45 +1,84 @@
 package org.shop.thewarehouse.ui.home
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.databinding.adapters.ListenerUtil.getListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.beducompras.ui.home.ProductAdapterListener
+import org.shop.thewarehouse.data.model.Product
+import org.shop.thewarehouse.data.room.ProductDB
 import org.shop.thewarehouse.databinding.FragmentHomeBinding
+import org.shop.thewarehouse.ui.ShoppingApplication
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 
-class HomeFragment : Fragment() {
-
-    private lateinit var homeViewModel: HomeViewModel
+class HomeFragment : Fragment(), ProductAdapterListener {
+    private lateinit var productAdapter: ProductAdapter
     private var _binding: FragmentHomeBinding? = null
-
+    private val application by lazy { activity?.applicationContext as ShoppingApplication }
+    private val homeViewModel: HomeViewModel by lazy { HomeViewModel(application.productRepository) }
+    private lateinit var adapter: ProductAdapter
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View{
+        _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        Executors
+            .newSingleThreadExecutor()
+            .execute(Runnable {
+                ProductDB
+                    .getDatabase(context = requireContext())
+                    ?.productDao()
+                    ?.insertProduct(Product())
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        setupRecyclerView()
+        val executor: ExecutorService = Executors.newSingleThreadExecutor()
+        homeViewModel.let{
+            it.products.observe(viewLifecycleOwner) { productList ->
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+                productAdapter.submitList(productList)
+            }
+
+            it.getProducts()
+        }
+        /*
+        executor.execute(Runnable {
+            val productsArray = ProductDB
+                .getDatabase(context = requireContext())
+                ?.productDao()
+                ?.getProducts() as MutableList<Product>
         })
-        return root
+         */
+
+        return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    private fun setupRecyclerView(){
+        productAdapter = ProductAdapter()
+        binding.productList.apply{
+            adapter = productAdapter
+
+            binding.textHeader.visibility = View.VISIBLE
+            binding.productList.visibility = View.VISIBLE
+        }
+    }
+
+    override fun onProductClicked(view: View, product: Product) {
+        //
     }
 }
