@@ -1,14 +1,13 @@
 
 ##  💻 Proyecto - The Warehouse
 
-<img src="images/carpool.png" align="right" height="100" width="100" hspace="10">
+<img src="images/thewarehouse.png" align="right" height="100" width="100" hspace="10">
 
 ##  :wave: Bienvenid@s
 
 #  Nuevas funcionalidades 🛒
 
- - Los datos del usuario se guardan en una base de datos de manera local
-   (ROOM) y nube (Firebase)
+ - Los datos del usuario se guardan en una base de datos en la nube (Firebase)
  - Las transiciones entre fragments y Activities
  - El usuario puede navegar entre pantallas de una manera intuitiva con
    la implementación de NavBar
@@ -35,9 +34,7 @@
 - Android Studio
 
 - Teléfono físico (Recomendado) o API Android 5.0 o superior
-
-- SDK Google Services
-- S.O Windows
+- S.O Windows o MacOS
 
 ##  🛠️ Funcionalidad
 
