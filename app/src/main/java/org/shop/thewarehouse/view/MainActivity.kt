@@ -1,7 +1,6 @@
 package org.shop.thewarehouse.view
 
 import android.Manifest
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +21,6 @@ import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityMainBinding
 import org.shop.thewarehouse.ui.loginEmail.LoginEmail
-import org.shop.thewarehouse.ui.register.Register
 import org.shop.thewarehouse.utils.Utility
 
 class MainActivity : AppCompatActivity() {
@@ -47,10 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         // Dentro de onCreate
         FirebaseApp.initializeApp(this)
-
-
-
         auth = Firebase.auth
+
 
         with(binding.animationView) {
             setMinAndMaxFrame(30, 60)

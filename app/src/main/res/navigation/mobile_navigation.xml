@@ -9,7 +9,25 @@
         android:id="@+id/navigation_home"
         android:name="org.shop.thewarehouse.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/next_fragment"
+            app:destination="@id/fragment_product_detail"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="true"/>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_product_detail"
+        android:name="org.shop.thewarehouse.ui.home.detail.ProductDetail"
+        android:label="Detalle"
+        tools:layout="@layout/fragment_product_detail"/>
 
     <fragment
         android:id="@+id/navigation_notifications"
