@@ -64,6 +64,6 @@ class HomeFragment : Fragment(), ProductAdapterListener {
     }
 
     override fun onProductClicked(view: View, product: Product) {
-        //
+
     }
 }

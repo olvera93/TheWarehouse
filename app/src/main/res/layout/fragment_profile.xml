@@ -12,59 +12,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:context=".ui.home.HomeFragment">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/image_profile"
-                android:layout_width="92dp"
-                android:layout_height="92dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:padding="2dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/ic_profile_photo"
-                app:strokeColor="?attr/colorSurface"
-                app:strokeWidth="5dp"
-                tools:ignore="MissingConstraints" />
-
-            <TextView
-                android:id="@+id/text_user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/txt_user"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_profile" />
-
-            <TextView
-                android:id="@+id/text_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/txt_email"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_user_name" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/logout_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/button_logout"
-                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                 app:icon="@drawable/ic_logout"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.049"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_email" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.878" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.core.widget.NestedScrollView>
 </layout>

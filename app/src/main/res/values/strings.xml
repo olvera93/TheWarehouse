@@ -6,9 +6,8 @@
 
     <string name="button_home">Inicio</string>
     <string name="button_profile">Perfil</string>
-
     <string name="button_logout">Salir</string>
-
+    <string name="button_menu">Mas</string>
 
     <string name="login">Regístrate en TheWarehouse</string>
     <string name="register_user">Usar correo electrónico</string>
@@ -25,6 +24,10 @@
     <string name="foto_de_perfil">Foto de perfil</string>
     <string name="ponga_su_mejor_foto">Foto</string>
     <string name="su_foto_le_ayuda_para_qu_sus_contactos_pueda_identificarle_m_s_r_pido">Hola</string>
+    <string name="txt_hello">Hola</string>
+    <string name="txt_account">Cuenta</string>
+    <string name="txt_orders">Pedidos</string>
+
 
     <string name="register_login">Iniciar Sesión</string>
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
@@ -43,10 +46,13 @@
     <string name="shop_description">Notificaciones acerca de nuevos usuarios</string>
 
 
+    <!-- Titulos de fragments y navigation -->
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="title_more">More</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
 
     <string name="product_list_title">Nuestros mejores productos</string>
 </resources>

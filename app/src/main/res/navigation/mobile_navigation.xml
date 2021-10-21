@@ -12,14 +12,40 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_profile"
-        android:name="org.shop.thewarehouse.ui.profile.ProfileFragment"
-        android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile"/>
-
-    <fragment
         android:id="@+id/navigation_notifications"
         android:name="org.shop.thewarehouse.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="org.shop.thewarehouse.ui.settings.SettingsFragment"
+        android:label="@string/title_more"
+        tools:layout="@layout/fragment_settings">
+
+        <action
+            android:id="@+id/next_fragment"
+            app:destination="@id/navigation_home"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/next_fragment_account"
+            app:destination="@id/fragment_profile"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_profile"
+        android:name="org.shop.thewarehouse.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile"/>
+
 </navigation>
