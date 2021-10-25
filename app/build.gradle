@@ -108,6 +108,9 @@ dependencies {
     // Coil
     implementation "io.coil-kt:coil:1.1.1"
 
+    // Para que funcione firestore apartir de la API 30
+    implementation "io.grpc:grpc-okhttp:1.32.2"
+
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
