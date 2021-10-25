@@ -1,8 +1,6 @@
 package org.shop.thewarehouse.ui.home
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +8,6 @@ import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
 
-import com.example.beducompras.ui.home.ProductAdapterListener
 import org.shop.thewarehouse.data.model.Product
 import org.shop.thewarehouse.databinding.FragmentHomeBinding
 import org.shop.thewarehouse.ui.ShoppingApplication

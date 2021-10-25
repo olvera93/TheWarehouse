@@ -1,4 +1,4 @@
-package com.example.beducompras.ui.home
+package org.shop.thewarehouse.ui.home
 
 import android.view.View
 import org.shop.thewarehouse.data.model.Product

@@ -28,6 +28,13 @@
     <string name="txt_account">Cuenta</string>
     <string name="txt_orders">Pedidos</string>
 
+    <string name="txt_account_user">Usuario</string>
+    <string name="txt_account_email">Correo</string>
+    <string name="txt_account_name">Nombre</string>
+    <string name="txt_account_last_name">Apellido</string>
+
+
+
 
     <string name="register_login">Iniciar Sesión</string>
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
@@ -50,11 +57,13 @@
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_more">More</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_more">Mas</string>
+    <string name="title_notifications">Notificaciones</string>
+    <string name="title_profile">Perfil</string>
 
     <string name="product_list_title">Nuestros mejores productos</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_data">Mis datos</string>
+    <string name="account_data">Datos de cuenta</string>
+    <string name="personal_information">Datos Personales</string>
+
 </resources>

@@ -30,6 +30,12 @@
     <string name="txt_hello">Hello</string>
     <string name="txt_account">Account</string>
     <string name="txt_orders">Orders</string>
+    <string name="txt_account_user">User</string>
+    <string name="txt_account_email">Email</string>
+    <string name="txt_account_name">Name</string>
+    <string name="txt_account_last_name">LastName</string>
+
+
 
 
     <string name="register_login">Log in</string>
@@ -53,10 +59,15 @@
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_more">Mas</string>
+    <string name="title_more">More</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_profile">Perfil</string>
+    <string name="title_profile">Profile</string>
+
     <string name="product_list_title">Our best products</string>
+    <string name="my_data">Mis datos</string>
+    <string name="account_data">Account data</string>
+    <string name="personal_information">Personal information</string>
+
 
 
 </resources>
