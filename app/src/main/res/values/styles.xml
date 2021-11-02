@@ -19,9 +19,9 @@
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.DayNight">
-        <item name="colorPrimary">#E91E63</item>
-        <item name="colorPrimaryDark">#E91E63</item>
-        <item name="colorAccent">#E91E63</item>
+        <item name="colorPrimary">#FFBD59</item>
+        <item name="colorPrimaryDark">#FFBD59</item>
+        <item name="colorAccent">#5C7AEA</item>
     </style>
 
 

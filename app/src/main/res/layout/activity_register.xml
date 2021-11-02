@@ -121,6 +121,7 @@
         android:layout_height="63dp"
         android:background="@drawable/button_design"
         android:text="@string/continue_register"
+        app:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

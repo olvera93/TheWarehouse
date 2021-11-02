@@ -30,7 +30,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.023"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/ic_profile_photo"
+                app:srcCompat="@drawable/useroption"
                 app:strokeColor="?attr/colorSurface"
                 app:strokeWidth="5dp"
                 tools:ignore="MissingConstraints"
@@ -59,6 +59,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="@string/title_home"
+                        android:fontFamily="@font/heebo"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.507"
@@ -76,7 +77,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0"
-                        app:srcCompat="@drawable/home" />
+                        app:srcCompat="@drawable/homeoption" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -104,6 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="@string/txt_account"
+                        android:fontFamily="@font/heebo"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.507"
@@ -120,7 +122,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0"
-                        app:srcCompat="@drawable/account" />
+                        app:srcCompat="@drawable/key" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -148,6 +150,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="@string/txt_orders"
+                        android:fontFamily="@font/heebo"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.507"
@@ -164,7 +167,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0"
-                        app:srcCompat="@drawable/orders" />
+                        app:srcCompat="@drawable/box" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
