@@ -1,6 +1,5 @@
 package org.shop.thewarehouse.ui.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,6 +16,7 @@ class HomeViewModel(val repository: ProductRepository): ViewModel() {
     private var _products = MutableLiveData<List<Product>>()
     val products get() = _products
 
+    private var mutableProduct = MutableLiveData<Product>()
     fun getProducts(){
         viewModelScope.launch{
             try{
@@ -33,5 +33,14 @@ class HomeViewModel(val repository: ProductRepository): ViewModel() {
             }
         }
     }
+    fun setProduct(product: Product){
+        mutableProduct.value = product
+    }
 
+    fun getProduct():LiveData<Product>{
+        return mutableProduct
+    }
+    fun addItemToCart(product: Product){
+
+    }
 }

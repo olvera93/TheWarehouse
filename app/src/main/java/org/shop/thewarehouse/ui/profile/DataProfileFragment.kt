@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.navOptions
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.FragmentDataProfileBinding
-
+import shortbread.Shortcut
 
 
 class DataProfileFragment: Fragment() {
@@ -30,7 +32,8 @@ class DataProfileFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDataProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentDataProfileBinding.inflate(layoutInflater, container, false)
+
         val root: View = binding.root
 
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
@@ -63,6 +66,8 @@ class DataProfileFragment: Fragment() {
         return root
     }
 
+
+
     private fun dataProfile(email: String?) {
         db= FirebaseFirestore.getInstance()
         if (email != null) {
@@ -71,6 +76,7 @@ class DataProfileFragment: Fragment() {
                 binding.editTextEmail.setText(tasks.get("email").toString())
                 binding.editTextName.setText(tasks.get("nombre").toString())
                 binding.editTextLastName.setText(tasks.get("apellido").toString())
+                binding.editTextDirection.setText(tasks.get("direccion").toString())
             }
         }
     }

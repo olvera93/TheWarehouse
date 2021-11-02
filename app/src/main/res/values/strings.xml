@@ -3,7 +3,6 @@
 
     <string name="prefs_file">com.shop.thewarehouse.PREFERENCE_FILE_KEY</string>
 
-
     <string name="button_home">Inicio</string>
     <string name="button_profile">Perfil</string>
     <string name="button_logout">Salir</string>
@@ -55,15 +54,30 @@
 
     <!-- Titulos de fragments y navigation -->
     <string name="title_activity_main_navigation">MainNavigation</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Inicio</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_more">Mas</string>
+    <string name="title_more">Más</string>
     <string name="title_notifications">Notificaciones</string>
     <string name="title_profile">Perfil</string>
+    <string name="title_detail">Detalle de producto</string>
+    <string name="title_cart">Carrito</string>
+    <string name="title_order">Resumen de pedido</string>
 
     <string name="product_list_title">Nuestros mejores productos</string>
+    <string name="moneySign" translatable="false">$\u0020</string>
+    <string name="hello_blank_fragment">Hola esto es un fragment vacio</string>
+    <!-- PDP Y CARRITO -->
+    <string name="addToCart">Agregar al carrito</string>
+    <string name="title_description">Descripción</string>
+    <string name="payment_btn">Proceder a pagar</string>
+    <string name="quantityAbreviation">Cant.</string>
+
     <string name="my_data">Mis datos</string>
     <string name="account_data">Datos de cuenta</string>
     <string name="personal_information">Datos Personales</string>
+    <string name="direction_information">Direcciones</string>
+    <string name="zip_information">Compras desde</string>
 
+    <!-- Shorcut -->
+    <string name="account">Cuenta</string>
 </resources>

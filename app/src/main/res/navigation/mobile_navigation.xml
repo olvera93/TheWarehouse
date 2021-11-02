@@ -11,24 +11,20 @@
         android:label="@string/title_home"
 
         tools:layout="@layout/fragment_home" >
-
         <action
-            android:id="@+id/next_fragment"
-            app:destination="@id/fragment_product_detail"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"
-            app:popUpToInclusive="true"/>
+            android:id="@+id/action_navigation_home_to_productDetail22"
+            app:destination="@id/productDetail22"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_home_to_cart"
+            app:destination="@id/navigation_cart" />
 
 
     </fragment>
-
-    <fragment
-        android:id="@+id/fragment_product_detail"
-        android:name="org.shop.thewarehouse.ui.home.detail.ProductDetail"
-        android:label="Detalle"
-        tools:layout="@layout/fragment_product_detail"/>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -66,7 +62,6 @@
         android:name="org.shop.thewarehouse.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile">
-
         <action
             android:id="@+id/next_fragment_account"
             app:destination="@id/fragment_data_profile"
@@ -75,8 +70,32 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
             app:popUpToInclusive="true"/>
-
     </fragment>
+    <fragment
+        android:id="@+id/productDetail22"
+        android:name="org.shop.thewarehouse.ui.detail.ProductDetail2"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_product_detail2">
+        <action
+            android:id="@+id/action_productDetail22_to_cart"
+            app:destination="@id/navigation_cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="org.shop.thewarehouse.ui.order.orderFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="org.shop.thewarehouse.ui.cart.cart"
+        android:label="@string/title_cart"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cart_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+
+
 
     <fragment
         android:id="@+id/fragment_data_profile"

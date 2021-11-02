@@ -39,20 +39,23 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_view_home"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="140dp"
+                android:layout_marginEnd="@dimen/margin"
+                android:layout_marginStart="@dimen/margin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.053"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_profile"
                 app:layout_constraintVertical_bias="0.072"
-                card_view:cardCornerRadius="4dp">
+                card_view:cardCornerRadius="8sp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:context=".ui.home.HomeFragment">
+                    tools:context=".ui.home.HomeFragment"
+                    >
                     <TextView
                         android:id="@+id/text_home"
                         android:layout_width="wrap_content"
@@ -85,20 +88,22 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_view_profile"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="140dp"
+                android:layout_marginEnd="@dimen/margin"
+                android:layout_marginStart="@dimen/margin_between_elements"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
-                app:layout_constraintStart_toEndOf="@+id/card_view_home"
+                app:layout_constraintHorizontal_bias="0.053"                app:layout_constraintStart_toEndOf="@+id/card_view_home"
                 app:layout_constraintTop_toBottomOf="@+id/image_profile"
-                app:layout_constraintVertical_bias="0.071"
-                card_view:cardCornerRadius="4dp">
+                app:layout_constraintVertical_bias="0.072"
+                card_view:cardCornerRadius="8sp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:context=".ui.home.HomeFragment">
+
                     <TextView
                         android:id="@+id/text_account"
                         android:layout_width="wrap_content"
@@ -127,18 +132,19 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_view_Order"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="140dp"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.384"
+                app:layout_constraintHorizontal_bias="0.053"
                 app:layout_constraintStart_toEndOf="@+id/card_view_profile"
                 app:layout_constraintTop_toBottomOf="@+id/image_profile"
-                app:layout_constraintVertical_bias="0.071"
-                card_view:cardCornerRadius="4dp">
+                app:layout_constraintVertical_bias="0.073"
+                card_view:cardCornerRadius="8sp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

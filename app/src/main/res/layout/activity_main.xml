@@ -97,6 +97,7 @@
         android:textAllCaps="false"
         android:textColor="@color/red"
         android:textSize="17sp"
+        android:layout_marginEnd="@dimen/margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
