@@ -23,15 +23,17 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_view_logout"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="@dimen/margin_between_elements"
+                android:layout_height="140dp"
+                android:layout_marginStart="@dimen/margin_between_elements"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin_between_elements"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.171"
+                app:layout_constraintHorizontal_bias="0.053"
                 app:layout_constraintStart_toEndOf="@+id/card_view_data"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.08"
-                card_view:cardCornerRadius="4dp">
+                app:layout_constraintVertical_bias="0.073"
+                card_view:cardCornerRadius="8sp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -69,15 +71,17 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_view_data"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_height="140dp"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginStart="@dimen/browser_actions_context_menu_min_padding"
+                android:layout_marginEnd="@dimen/margin_between_elements"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.107"
+                app:layout_constraintHorizontal_bias="0.053"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.08"
-                card_view:cardCornerRadius="4dp">
+                app:layout_constraintVertical_bias="0.073"
+                card_view:cardCornerRadius="8sp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

@@ -67,6 +67,12 @@
     <string name="my_data">Mis datos</string>
     <string name="account_data">Account data</string>
     <string name="personal_information">Personal information</string>
+    <string name="direction_information">Directions</string>
+    <string name="zip_information">Compras desde</string>
+
+
+    <!-- Shorcut -->
+    <string name="account">Account</string>
 
 
 

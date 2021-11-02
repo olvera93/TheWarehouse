@@ -5,15 +5,18 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityMainNavigationBinding
+import shortbread.Shortcut
 
-class NavigationActivity: AppCompatActivity() {
+class NavigationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainNavigationBinding
     private lateinit var db: FirebaseFirestore
@@ -26,8 +29,8 @@ class NavigationActivity: AppCompatActivity() {
         binding = ActivityMainNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPref=this?.getPreferences(Context.MODE_PRIVATE)?:return
-        val isLogin=sharedPref.getString("Email","1")
+        val sharedPref = this?.getPreferences(Context.MODE_PRIVATE) ?: return
+        val isLogin = sharedPref.getString("Email", "1")
 
         val navView: BottomNavigationView = binding.navView
 
@@ -41,35 +44,50 @@ class NavigationActivity: AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if(isLogin=="1") {
-            var email=intent.getStringExtra("email")
-            if(email!=null) {
+        if (isLogin == "1") {
+            var email = intent.getStringExtra("email")
+            if (email != null) {
                 setText(email)
                 with(sharedPref.edit()) {
-                    putString("Email",email)
+                    putString("Email", email)
                     apply()
                 }
-            } else{
-                val intent = Intent(this,MainActivity::class.java)
+            } else {
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             }
-        }
-        else {
+        } else {
             setText(isLogin)
         }
 
 
     }
 
-    private fun setText(email:String?) {
-        db= FirebaseFirestore.getInstance()
+    @Shortcut(id = "Cuenta", icon = R.drawable.ic_profile, shortLabel = "Cuenta")
+    fun account() {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main_navigation)
+        navController.navigate(R.id.fragment_data_profile)
+    }
+
+    @Shortcut(id = "Share App", icon = R.drawable.ic_share, shortLabel = "Share App")
+    fun shareApp() {
+        val share = Intent.createChooser(Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "https://github.com/olvera93/TheWarehouse.git")
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TITLE, "The Warehouse")
+            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        }, null)
+        startActivity(share)
+    }
+
+    private fun setText(email: String?) {
+        db = FirebaseFirestore.getInstance()
         if (email != null) {
             db.collection("users").document(email).get()
-                .addOnSuccessListener {
-                        tasks->
+                .addOnSuccessListener { tasks ->
                     tasks.get("email").toString()
-
                 }
         }
 

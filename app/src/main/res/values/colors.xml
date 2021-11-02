@@ -10,6 +10,7 @@
     <color name="orange">#EF6A12</color>
     <color name="green">#00FF04</color>
     <color name="red">#FF0000</color>
+    <color name="prueba">#82B1FF</color>
 
     <color name="red_700">#FFD32F2F</color>
 </resources>

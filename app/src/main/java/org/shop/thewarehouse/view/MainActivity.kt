@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
 
     companion object{
-        val PERMISSION_ID = 34
+        const val PERMISSION_ID = 34
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
     }
@@ -182,5 +182,6 @@ class MainActivity : AppCompatActivity() {
         return ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
                 PackageManager.PERMISSION_GRANTED
     }
+
 
 }

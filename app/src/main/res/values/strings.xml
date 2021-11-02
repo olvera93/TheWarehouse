@@ -3,7 +3,6 @@
 
     <string name="prefs_file">com.shop.thewarehouse.PREFERENCE_FILE_KEY</string>
 
-
     <string name="button_home">Inicio</string>
     <string name="button_profile">Perfil</string>
     <string name="button_logout">Salir</string>
@@ -65,5 +64,9 @@
     <string name="my_data">Mis datos</string>
     <string name="account_data">Datos de cuenta</string>
     <string name="personal_information">Datos Personales</string>
+    <string name="direction_information">Direcciones</string>
+    <string name="zip_information">Compras desde</string>
 
+    <!-- Shorcut -->
+    <string name="account">Cuenta</string>
 </resources>

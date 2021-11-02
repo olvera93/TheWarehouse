@@ -1,5 +1,7 @@
 package org.shop.thewarehouse.ui.home
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,11 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.FirebaseFirestore
+import org.shop.thewarehouse.R
 
 import org.shop.thewarehouse.data.model.Product
 import org.shop.thewarehouse.databinding.FragmentHomeBinding
 import org.shop.thewarehouse.ui.ShoppingApplication
-
 
 
 class HomeFragment : Fragment(), ProductAdapterListener {
@@ -19,8 +22,7 @@ class HomeFragment : Fragment(), ProductAdapterListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
-    //private var products: List<Product>? = null
+    private lateinit var db: FirebaseFirestore
 
     private lateinit var productAdapter: ProductAdapter
     private val application by lazy { activity?.applicationContext as ShoppingApplication }
@@ -33,6 +35,9 @@ class HomeFragment : Fragment(), ProductAdapterListener {
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         binding.lifecycleOwner = this
 
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val isLogin=sharedPref.getString("Email","1")
+
         setupRecyclerView()
 
         homeViewModel.let{
@@ -42,6 +47,20 @@ class HomeFragment : Fragment(), ProductAdapterListener {
             }
 
             it.getProducts()
+        }
+
+        if(isLogin=="1") {
+            val email=requireActivity().intent.getStringExtra("email")
+            if(email!=null) {
+                setText(email)
+                with(sharedPref.edit()) {
+                    putString("Email",email)
+                    apply()
+                }
+            }
+        }
+        else {
+            setText(isLogin)
         }
 
 
@@ -54,10 +73,25 @@ class HomeFragment : Fragment(), ProductAdapterListener {
         productAdapter = ProductAdapter()
         binding.productList.apply{
             adapter = productAdapter
-
             binding.textHeader.visibility = View.VISIBLE
             binding.productList.visibility = View.VISIBLE
+
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setText(email: String?) {
+        db = FirebaseFirestore.getInstance()
+        if (email != null) {
+            db.collection("users").document(email).get()
+                .addOnSuccessListener { tasks ->
+                    tasks.get("email").toString()
+                    binding.name.text =
+                        "¿${getString(R.string.zip_information)} ${tasks.get("estado").toString()} ${tasks.get("codigoPostal").toString()}?"
+
+                }
+        }
+
     }
 
     override fun onProductClicked(view: View, product: Product) {
