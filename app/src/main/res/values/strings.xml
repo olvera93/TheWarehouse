@@ -28,6 +28,13 @@
     <string name="txt_account">Cuenta</string>
     <string name="txt_orders">Pedidos</string>
 
+    <string name="txt_account_user">Usuario</string>
+    <string name="txt_account_email">Correo</string>
+    <string name="txt_account_name">Nombre</string>
+    <string name="txt_account_last_name">Apellido</string>
+
+
+
 
     <string name="register_login">Iniciar Sesión</string>
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
@@ -65,4 +72,9 @@
     <string name="title_description">Descripción</string>
     <string name="payment_btn">Proceder a pagar</string>
     <string name="quantityAbreviation">Cant.</string>
+
+    <string name="my_data">Mis datos</string>
+    <string name="account_data">Datos de cuenta</string>
+    <string name="personal_information">Datos Personales</string>
+
 </resources>

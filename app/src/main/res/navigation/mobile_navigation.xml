@@ -60,7 +60,16 @@
         android:id="@+id/fragment_profile"
         android:name="org.shop.thewarehouse.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/next_fragment_account"
+            app:destination="@id/fragment_data_profile"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="true"/>
+    </fragment>
     <fragment
         android:id="@+id/productDetail22"
         android:name="org.shop.thewarehouse.ui.detail.ProductDetail2"
@@ -84,5 +93,13 @@
             android:id="@+id/action_cart_to_orderFragment"
             app:destination="@id/orderFragment" />
     </fragment>
+
+
+
+    <fragment
+        android:id="@+id/fragment_data_profile"
+        android:name="org.shop.thewarehouse.ui.profile.DataProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_data_profile"/>
 
 </navigation>

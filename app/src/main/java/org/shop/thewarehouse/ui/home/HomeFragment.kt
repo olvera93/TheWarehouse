@@ -13,8 +13,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
 
-import com.example.beducompras.ui.home.ProductAdapterListener
-import org.shop.thewarehouse.R
 import org.shop.thewarehouse.data.model.Product
 import org.shop.thewarehouse.databinding.FragmentHomeBinding
 

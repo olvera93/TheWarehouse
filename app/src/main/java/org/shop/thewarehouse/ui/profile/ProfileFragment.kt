@@ -71,12 +71,16 @@ class ProfileFragment: Fragment() {
         }
 
         binding.apply {
-            logoutButton.setOnClickListener {
+            cardViewLogout.setOnClickListener {
                 sharedPref.edit().clear().commit()
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
                 requireActivity().finish()
+            }
 
+
+            cardViewData.setOnClickListener {
+                findNavController().navigate(R.id.fragment_data_profile, null, navigate)
             }
 
         }
