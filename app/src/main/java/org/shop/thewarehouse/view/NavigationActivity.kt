@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,6 +21,7 @@ class NavigationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainNavigationBinding
     private lateinit var db: FirebaseFirestore
+    private lateinit var navController : NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
@@ -34,13 +36,14 @@ class NavigationActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main_navigation)
+        navController = findNavController(R.id.nav_host_fragment_activity_main_navigation)
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_notifications, R.id.navigation_settings
+                R.id.navigation_home, R.id.navigation_cart ,R.id.navigation_notifications, R.id.navigation_settings
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -91,5 +94,10 @@ class NavigationActivity : AppCompatActivity() {
                 }
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        navController.navigateUp()
+        return super.onSupportNavigateUp()
     }
 }
