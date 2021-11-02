@@ -53,10 +53,18 @@
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_more">Mas</string>
+    <string name="title_more">More</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_profile">Perfil</string>
+    <string name="title_profile">Profile</string>
     <string name="product_list_title">Our best products</string>
+    <string name="title_detail">Product Detail</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_order">Order summary</string>
 
-
+    <string name="hello_blank_fragment">This is an empty fragment :D</string>
+    <!-- CART & PDP -->
+    <string name="addToCart">Add to cart</string>
+    <string name="title_description">Description</string>
+    <string name="payment_btn">Proceed to checkout</string>
+    <string name="quantityAbreviation">Qty.</string>
 </resources>
