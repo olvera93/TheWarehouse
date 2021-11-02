@@ -61,8 +61,6 @@ class Register : AppCompatActivity() {
         override fun onLocationResult(result: LocationResult?) {
             val lastLocation = result?.lastLocation
             Log.d("TAG", "onLocationResult: ${lastLocation?.longitude.toString()}")
-            //findViewById<TextView>(com.google.android.gms.location.R.id.longitude).text="Longitude : "+lastLocation?.longitude.toString()
-            //findViewById<TextView>(com.google.android.gms.location.R.id.latitude).text="Latitude : "+lastLocation?.latitude.toString()
 
             val email = binding.textEmail.text.toString()
             val password = binding.textPassword.text.toString()
@@ -260,7 +258,7 @@ class Register : AppCompatActivity() {
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                    200
+                    PERMISSION_ID_LOCATION
                 )
                 return
             } else {
