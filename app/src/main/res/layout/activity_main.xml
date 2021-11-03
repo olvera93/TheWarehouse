@@ -63,7 +63,7 @@
         android:layout_width="300dp"
         android:layout_height="63dp"
         android:background="@drawable/button_design"
-        android:drawableLeft="@drawable/googlelogo"
+        android:drawableLeft="@drawable/ic_google"
         android:text="@string/google"
         app:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"

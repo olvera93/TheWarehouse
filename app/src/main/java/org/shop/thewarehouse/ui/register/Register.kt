@@ -8,6 +8,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.location.Address
 import android.location.Geocoder
 import android.location.LocationManager
@@ -32,6 +33,7 @@ import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityRegisterBinding
 import org.shop.thewarehouse.utils.Utility
 import org.shop.thewarehouse.view.NavigationActivity
+import org.shop.thewarehouse.view.PATH
 import org.shop.thewarehouse.view.PHOTO
 import java.util.*
 
@@ -40,7 +42,6 @@ class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-
     //Obeto que obtiene la localización
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
 
@@ -48,9 +49,7 @@ class Register : AppCompatActivity() {
     companion object {
         const val CHANNEL_SHOP = "TheWareHouse"
         var notificationId = 0
-        const val PERMISSION_ID_LOCATION = 33
-
-
+        const val PERMISSION_ID_LOCATION = 200
     }
 
     private val callback = object : LocationCallback() {
@@ -121,7 +120,7 @@ class Register : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
 
 
-//agregando un nuevo cliete de localización
+        //agregando un nuevo cliete de localización
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         onGPS()
 
@@ -136,6 +135,7 @@ class Register : AppCompatActivity() {
                 when {
                     textUserName.text.isNullOrEmpty() -> {
                         textUserName.error = getString(R.string.empty_field)
+
                     }
                     textUserFullName.text.isNullOrEmpty() -> {
                         textUserFullName.error = getString(R.string.empty_field)
@@ -234,7 +234,7 @@ class Register : AppCompatActivity() {
         }
     }
 
-    fun onGPS() {
+    private fun onGPS() {
 
         Log.d("TAG", "onGPS: ${isLocationEnabled()}")
 
@@ -283,7 +283,6 @@ class Register : AppCompatActivity() {
 
     }
 
-
     private fun isLocationEnabled(): Boolean {
         val locationManager =
             applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -291,37 +290,5 @@ class Register : AppCompatActivity() {
             LocationManager.NETWORK_PROVIDER
         )
     }
-
-    /*private fun checkPermissions(): Boolean {
-        if (checkGranted(Manifest.permission.ACCESS_COARSE_LOCATION) &&
-            checkGranted(Manifest.permission.ACCESS_FINE_LOCATION)
-        ) {
-            return true
-        }
-        return false
-    }
-
-
-
-    //Pedir los permisos requeridos para que funcione la localización
-    private fun requestPermissions() {
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ),
-            PERMISSION_ID_LOCATION
-        )
-    }
-
-    private fun checkGranted(permission: String): Boolean {
-        return ActivityCompat.checkSelfPermission(
-            this,
-            permission
-        ) == PackageManager.PERMISSION_GRANTED
-    }
-
-     */
 
 }
