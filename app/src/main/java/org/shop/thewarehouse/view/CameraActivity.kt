@@ -66,7 +66,7 @@ class CameraActivity : AppCompatActivity() {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFile)
 
                 val fileProvider = FileProvider.getUriForFile(
-                    applicationContext,
+                    this@CameraActivity,
                     "org.shop.thewarehouse",
                     photoFile
                 )
@@ -88,13 +88,9 @@ class CameraActivity : AppCompatActivity() {
             btnNext.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString(PHOTO, photoFile.name)
+                bundle.putString(PATH, photoFile.absolutePath)
 
-                val prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
-                val editor = prefs.edit()
-                editor.putString(PATH, photoFile.absolutePath)
-                editor.apply()
-
-                val intent = Intent(applicationContext, Register::class.java).apply {
+                val intent = Intent(this@CameraActivity, Register::class.java).apply {
                     putExtras(bundle)
                 }
                 startActivity(intent)
@@ -102,6 +98,7 @@ class CameraActivity : AppCompatActivity() {
                     R.transition.translate_left_side,
                     R.transition.translate_left_out
                 )
+                finish()
             }
 
         }

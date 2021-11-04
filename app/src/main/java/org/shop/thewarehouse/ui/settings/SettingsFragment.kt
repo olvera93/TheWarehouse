@@ -97,10 +97,10 @@ class SettingsFragment : Fragment() {
                 .addOnSuccessListener {
                         tasks->
                     binding.textUserName.text = "${getString(R.string.txt_hello)} ${tasks.get("usuario").toString()}"
-                    val prefs = requireActivity().getSharedPreferences("Preferences", 0)
-                    val path = prefs.getString(PATH,tasks.get("idPhoto").toString())
+                    val path = tasks.get("path").toString()
                     val takenImage = BitmapFactory.decodeFile(path)
                     binding.imageProfile.setImageBitmap(takenImage)
+                    println(takenImage)
                 }
         }
     }

@@ -8,9 +8,9 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.location.Address
 import android.location.Geocoder
+import android.location.Location
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
@@ -42,6 +42,7 @@ class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+
     //Obeto que obtiene la localización
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
 
@@ -60,51 +61,6 @@ class Register : AppCompatActivity() {
         override fun onLocationResult(result: LocationResult?) {
             val lastLocation = result?.lastLocation
             Log.d("TAG", "onLocationResult: ${lastLocation?.longitude.toString()}")
-
-            val email = binding.textEmail.text.toString()
-            val password = binding.textPassword.text.toString()
-            // Setup
-            val bundle = intent.extras
-            val photo = bundle?.getString(PHOTO)
-
-            val lat = lastLocation?.latitude!!.toDouble()
-            val lng = lastLocation?.longitude!!.toDouble()
-            val geocoder =
-                Geocoder(applicationContext, Locale.getDefault())
-            val addresses: List<Address> =
-                geocoder.getFromLocation(lat, lng, 1)
-            val address: String =
-                addresses[0].getAddressLine(0) // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-            val postalCode: String = addresses[0].postalCode
-            val state: String = addresses[0].adminArea
-
-
-            if (binding.textPassword.length() >= 6) {
-                if (email != null) {
-                    db.collection("users").document(email).set(
-                        hashMapOf(
-                            "usuario" to binding.textUserName.text.toString(),
-                            "nombre" to binding.textUserFullName.text.toString(),
-                            "apellido" to binding.textUserLastName.text.toString(),
-                            "email" to email,
-                            "password" to password,
-                            "idPhoto" to photo,
-                            "direccion" to address,
-                            "codigoPostal" to postalCode,
-                            "estado" to state
-                        )
-                    )
-                    createAccount(email, password)
-                }
-            } else {
-                Utility.displaySnackBar(
-                    binding.root,
-                    getString(R.string.password_error),
-                    applicationContext,
-                    R.color.red
-                )
-
-            }
             super.onLocationResult(result)
         }
     }
@@ -119,16 +75,14 @@ class Register : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-
-        //agregando un nuevo cliete de localización
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        onGPS()
-
         // Para android Oreo en adelante, es obligatorio registrar el canal de noticacioón
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setNotificationChannel()
         }
 
+        //agregando un nuevo cliete de localización
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        onGPS()
         binding.apply {
 
             btnRegister.setOnClickListener {
@@ -272,15 +226,61 @@ class Register : AppCompatActivity() {
     @SuppressLint("MissingPermission")
     private fun requestLocation() {
         Log.d("TAG", "requestLocation: ")
-        val requestLocation = LocationRequest()
-        requestLocation.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        requestLocation.interval = 0
-        requestLocation.fastestInterval = 0
-        requestLocation.numUpdates = 1
-        mFusedLocationClient.requestLocationUpdates(
-            requestLocation, callback, Looper.myLooper()
-        )
+        val locationRequest = LocationRequest.create().apply {
+            interval = 0
+            fastestInterval = 0
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            numUpdates = 1
+        }
+        //mFusedLocationClient.requestLocationUpdates(locationRequest, callback, Looper.myLooper())
+        mFusedLocationClient.lastLocation.addOnSuccessListener { location ->
 
+            try {
+                val lat = location?.latitude?.toDouble()
+                val lng = location?.longitude?.toDouble()
+                val geocoder =
+                    Geocoder(applicationContext, Locale.getDefault())
+                val addresses: List<Address> =
+                    geocoder.getFromLocation(lat!!, lng!!, 1)
+                val address: String =
+                    addresses[0].getAddressLine(0) // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+                val postalCode: String = addresses[0].postalCode
+                val state: String = addresses[0].adminArea
+                println(lat)
+                println(lng)
+
+                // Setup
+                val bundle = intent.extras
+                val photo = bundle?.getString(PHOTO)
+                val path = bundle?.getString(PATH)
+                val email = binding.textEmail.text.toString()
+                val password = binding.textPassword.text.toString()
+                if (binding.textPassword.length() >= 6) {
+                    db.collection("users").document(email).set(
+                        hashMapOf(
+                            "usuario" to binding.textUserName.text.toString(),
+                            "nombre" to binding.textUserFullName.text.toString(),
+                            "apellido" to binding.textUserLastName.text.toString(),
+                            "email" to email,
+                            "password" to password,
+                            "idPhoto" to photo,
+                            "direccion" to address,
+                            "codigoPostal" to postalCode,
+                            "estado" to state,
+                            "path" to path
+                        )
+                    )
+                    createAccount(email, password)
+                } else {
+                    Utility.displaySnackBar(
+                        binding.root,
+                        getString(R.string.password_error),
+                        applicationContext,
+                        R.color.red
+                    )
+                }
+            } catch (e: NullPointerException) { }
+        }
     }
 
     private fun isLocationEnabled(): Boolean {
