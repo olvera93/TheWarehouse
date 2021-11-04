@@ -72,8 +72,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="89dp"
+                        android:layout_width="68dp"
+                        android:layout_height="79dp"
                         android:contentDescription="@string/have_an_account"
 
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -121,8 +121,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="89dp"
+                        android:layout_width="68dp"
+                        android:layout_height="79dp"
                         android:contentDescription="@string/have_an_account"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -168,8 +168,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="89dp"
+                        android:layout_width="68dp"
+                        android:layout_height="79dp"
                         android:contentDescription="@string/have_an_account"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
