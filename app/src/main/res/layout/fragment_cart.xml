@@ -47,9 +47,11 @@
     <ScrollView
         android:id="@+id/items_cart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1.0"
+        android:fillViewport="true"
         android:fadeScrollbars="false"
+        android:theme="@style/Theme.TheWarehouse"
         android:scrollbarThumbVertical="@color/accentVariant">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -65,7 +67,6 @@
         android:id="@+id/payment_cart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="vertical">
 
         <TextView

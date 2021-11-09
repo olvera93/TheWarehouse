@@ -16,7 +16,7 @@
     <color name="colorAccent">#5C7AEA</color>
     <color name="accentVariant">#3B5198</color>
     <color name="colorPrimaryNight">#E65100</color>
-    <color name="colorOnPrimaryNight">#37474F</color>
+    <color name="colorOnPrimaryNight">#FFFFFF</color>
     <color name="prueba">#82B1FF</color>
 
     <color name="red_700">#FFD32F2F</color>

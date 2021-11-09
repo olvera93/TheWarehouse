@@ -44,6 +44,7 @@ public class CartListAdapter extends ListAdapter<CartItem,CartListAdapter.CartVH
                     cartInterface.deleteItem(getItem(getAdapterPosition()));
                 }
             });
+            cartRowBinding.quantitySpinner.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
             cartRowBinding.quantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
