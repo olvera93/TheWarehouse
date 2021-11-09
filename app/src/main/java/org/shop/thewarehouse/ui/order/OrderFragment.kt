@@ -19,13 +19,7 @@ import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.FragmentOrderBinding
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [orderFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class orderFragment : Fragment() {
-
+class OrderFragment : Fragment() {
     private val PUBLIC_KEY = "key_eYvWV7gSDkNYXsmr"
     private val API_VERSION = "0.3.0"
     private lateinit var db: FirebaseFirestore
@@ -42,6 +36,10 @@ class orderFragment : Fragment() {
 
     private var _binding: FragmentOrderBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
 
     override fun onCreateView(
@@ -169,5 +167,4 @@ class orderFragment : Fragment() {
         }
 
     }
-
 }

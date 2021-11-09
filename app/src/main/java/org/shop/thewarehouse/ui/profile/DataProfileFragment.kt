@@ -1,46 +1,22 @@
 package org.shop.thewarehouse.ui.profile
 
 import android.content.Context
-import android.content.Context.CONNECTIVITY_SERVICE
-import android.net.ConnectivityManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.navOptions
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
-import io.conekta.conektasdk.Card
-import io.conekta.conektasdk.Conekta
-import io.conekta.conektasdk.Token
-import org.json.JSONObject
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.FragmentDataProfileBinding
-import shortbread.Shortcut
-import javax.crypto.Cipher.PUBLIC_KEY
+
 
 
 class DataProfileFragment: Fragment() {
 
     private var _binding: FragmentDataProfileBinding? = null
     private val binding get() = _binding!!
-    private val PUBLIC_KEY = "key_eYvWV7gSDkNYXsmr"
-    private val API_VERSION = "0.3.0"
-
-    private var hasValidCardData: Boolean? = false
-    private var cardName: String? = null
-    private var cardNumber: String? = null
-    private var cardCvc: String? = null
-    private var cardMonth: String? = null
-    private var cardYear: String? = null
-    private var tokenIdTag: String? = null
-    private var errorTag: String? = null
-    private var uuidDeviceTag: String? = null
 
     private lateinit var db: FirebaseFirestore
 

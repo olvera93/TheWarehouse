@@ -10,7 +10,7 @@
         android:name="org.shop.thewarehouse.ui.home.HomeFragment"
         android:label="@string/title_home"
 
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_productDetail22"
             app:destination="@id/productDetail22"
@@ -45,7 +45,7 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/next_fragment_account"
@@ -54,7 +54,7 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -69,22 +69,28 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/productDetail22"
-        android:name="org.shop.thewarehouse.ui.detail.ProductDetail2"
+        android:name="org.shop.thewarehouse.ui.detail.ProductDetailFragment"
         android:label="@string/title_detail"
-        tools:layout="@layout/fragment_product_detail2">
+        tools:layout="@layout/fragment_product_detail">
         <action
             android:id="@+id/action_productDetail22_to_cart"
             app:destination="@id/navigation_cart" />
     </fragment>
+
     <fragment
         android:id="@+id/orderFragment"
-        android:name="org.shop.thewarehouse.ui.order.orderFragment"
+        android:name="org.shop.thewarehouse.ui.order.OrderFragment"
         android:label="@string/title_order"
-        tools:layout="@layout/fragment_order" />
+        tools:layout="@layout/fragment_order" >
+
+
+
+    </fragment>
+
     <fragment
         android:id="@+id/navigation_cart"
         android:name="org.shop.thewarehouse.ui.cart.CartFragment"
@@ -96,11 +102,10 @@
     </fragment>
 
 
-
     <fragment
         android:id="@+id/fragment_data_profile"
         android:name="org.shop.thewarehouse.ui.profile.DataProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_data_profile"/>
+        tools:layout="@layout/fragment_data_profile" />
 
 </navigation>
