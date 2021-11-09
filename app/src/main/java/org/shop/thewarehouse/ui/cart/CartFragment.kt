@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import androidx.recyclerview.widget.DividerItemDecoration
 import org.intellij.lang.annotations.JdkConstants
 import org.shop.thewarehouse.R
@@ -31,6 +34,7 @@ class CartFragment : Fragment(),CartListAdapter.CartInterface{
     lateinit var homeViewModel: HomeViewModel
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,8 +52,17 @@ class CartFragment : Fragment(),CartListAdapter.CartInterface{
         var emptyCartComponent = binding.emptyCartView
         var paymentCart = binding.paymentCart
         var itemsInCart = binding.itemsCart
+        val navigate = navOptions {
+            anim {
+                enter = R.anim.slide_in_right
+                exit = R.anim.slide_out_left
+                popEnter = R.anim.slide_in_left
+                popExit = R.anim.slide_out_right
+            }
+        }
         binding.cartRecyclerView.adapter = cartListAdapter
         binding.cartRecyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
+        binding.paymentButton.setOnClickListener {   findNavController().navigate(R.id.orderFragment, null, navigate) }
         homeViewModel.let{
             it.getCart().observe(viewLifecycleOwner) { cartItems ->
                 Log.d("cartitems: ",cartItems.size.toString())

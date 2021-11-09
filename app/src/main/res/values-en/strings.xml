@@ -120,6 +120,10 @@
     <string name="theTokenIdLabel">Token:</string>
     <string name="errorLabel">Error:</string>
     <string name="uuidDeviceLabel">UUID:</string>
+    <string name="pay">Pay</string>
+
+    <!-- Checkout-->
+    <string name="txt_address">Your order will be shipped to:</string>
 
 
 </resources>

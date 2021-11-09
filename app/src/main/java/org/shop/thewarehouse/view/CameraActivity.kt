@@ -1,6 +1,7 @@
 package org.shop.thewarehouse.view
 
 
+import Register
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
@@ -19,7 +20,7 @@ import androidx.core.content.FileProvider
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityCameraBinding
-import org.shop.thewarehouse.ui.register.Register
+
 import org.shop.thewarehouse.ui.settings.SettingsFragment
 import java.io.File
 import android.content.SharedPreferences

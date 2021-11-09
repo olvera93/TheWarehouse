@@ -25,8 +25,7 @@ import com.google.firebase.ktx.Firebase
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityMainBinding
 import org.shop.thewarehouse.ui.loginEmail.LoginEmail
-import org.shop.thewarehouse.ui.register.Register
-import org.shop.thewarehouse.ui.register.Register.Companion.PERMISSION_REQUEST_STORAGE
+
 import org.shop.thewarehouse.utils.DownloadController
 import org.shop.thewarehouse.utils.Utility
 import org.shop.thewarehouse.utils.Utility.buildAlertDialog

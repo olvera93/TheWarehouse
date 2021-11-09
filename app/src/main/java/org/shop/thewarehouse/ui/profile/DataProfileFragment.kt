@@ -68,7 +68,7 @@ class DataProfileFragment: Fragment() {
                 popExit = R.anim.slide_out_right
             }
         }
-        _binding!!.paymentButton.setOnClickListener {onPressTokenizeButton()}
+
 
 
         if(isLogin=="1") {
@@ -103,84 +103,6 @@ class DataProfileFragment: Fragment() {
             }
         }
     }
-    private fun onPressTokenizeButton() {
 
-        enableProgressBar(true)
-        if (hasInternetConnection()) {
-            Conekta.setPublicKey(PUBLIC_KEY)
-            Conekta.setApiVersion(API_VERSION)
-            Conekta.collectDevice(activity)
-            getCardData()
-            if (hasValidCardData!!) {
-                val card = Card(cardName, cardNumber, cardCvc, cardMonth, cardYear)
-                val token = Token(activity)
 
-                //Listen when token is returned
-                token.onCreateTokenListener { data -> showTokenResult(data) }
-
-                //Request for create token
-                token.create(card)
-            } else {
-                Toast.makeText(
-                    activity,
-                    resources.getString(R.string.cardDataIncomplete),
-                    Toast.LENGTH_LONG
-                ).show()
-                //enableInputs(true)
-                enableProgressBar(false)
-            }
-        } else {
-            Toast.makeText(
-                activity,
-                resources.getString(R.string.needInternetConnection),
-                Toast.LENGTH_LONG
-            ).show()
-            //binding.outputView.text = resources.getString(R.string.needInternetConnection)
-            //enableInputs(true)
-            enableProgressBar(false)
-        }
-    }
-    private fun showTokenResult(data: JSONObject) {
-        try {
-            Log.e("TAG", "showTokenResult: $data")
-            val tokenId: String = if (data.has("id")) {
-                data.getString("id")
-            } else {
-                data.getString("message")
-            }
-            val tokenMessage = "$tokenIdTag $tokenId"
-           // binding.outputView.text = tokenMessage
-            Toast.makeText(activity,"$tokenIdTag, $tokenId",Toast.LENGTH_SHORT).show()
-        } catch (error: Exception) {
-            val errorMessage = "$errorTag $error"
-            //binding.outputView.text = errorMessage
-        }
-        //enableInputs(true)
-        enableProgressBar(false)
-
-        val uuidMessage: String = uuidDeviceTag + " " + Conekta.deviceFingerPrint(activity)
-        //binding.uuidDevice.text = uuidMessage
-    }
-    private fun hasInternetConnection(): Boolean {
-        val cm = requireActivity().getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo = cm.activeNetworkInfo
-        return netInfo != null && netInfo.isConnected
-    }
-    private fun getCardData() {
-        hasValidCardData = true
-        cardName = binding.nameText.text.toString()
-        cardNumber = binding.numberText.text.toString()
-        cardCvc = binding.cvcText.text.toString()
-        cardMonth = binding.monthText.text.toString()
-        cardYear = binding.yearText.text.toString()
-        if (cardName!!.isEmpty() || cardNumber!!.isEmpty() || cardCvc!!.isEmpty()
-            || cardMonth!!.isEmpty() || cardYear!!.isEmpty()
-        ) {
-            hasValidCardData = false
-        }
-    }
-    private fun enableProgressBar(show: Boolean) {
-        //binding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
-        binding.shadowView.visibility = if (show) View.VISIBLE else View.GONE
-    }
 }
