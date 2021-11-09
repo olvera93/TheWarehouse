@@ -124,4 +124,7 @@
 
     <!-- Checkout-->
     <string name="txt_address">Tu orden sera enviada a:</string>
+    <string name="back_to">Regresar</string>
+    <string name="successful_payment">Pago exitoso</string>
+
 </resources>

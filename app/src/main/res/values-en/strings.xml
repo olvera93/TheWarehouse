@@ -103,7 +103,7 @@
 
     <!--  CONEKTA  -->
     <string name="XXXX">XXXX-XXXX-XXXX-XXXX</string>
-    <string name="Payment">Informacion de pago</string>
+    <string name="Payment">Payment Information</string>
     <string name="cardNumber">Card number:</string>
     <string name="cardName">Name that appears on the card:</string>
     <string name="expire">Expiration:</string>
@@ -124,6 +124,8 @@
 
     <!-- Checkout-->
     <string name="txt_address">Your order will be shipped to:</string>
+    <string name="back_to">Back</string>
+    <string name="successful_payment">Successful payment</string>
 
 
 </resources>

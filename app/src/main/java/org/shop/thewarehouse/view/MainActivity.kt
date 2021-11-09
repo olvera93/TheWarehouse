@@ -67,11 +67,7 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
         auth = Firebase.auth
 
-
-        with(binding.animationView) {
-            setMinAndMaxFrame(30, 60)
-        }
-
+        
         handleClick()
 
     }

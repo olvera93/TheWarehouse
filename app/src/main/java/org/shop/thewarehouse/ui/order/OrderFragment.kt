@@ -10,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import io.conekta.conektasdk.Card
 import io.conekta.conektasdk.Conekta
@@ -62,6 +64,19 @@ class OrderFragment : Fragment() {
             }
         } else {
             setText(isLogin)
+        }
+        val navigate = navOptions {
+            anim {
+                enter = R.anim.slide_in_right
+                exit = R.anim.slide_out_left
+                popEnter = R.anim.slide_in_left
+                popExit = R.anim.slide_out_right
+            }
+        }
+
+        binding.paymentButton.setOnClickListener {
+            findNavController().navigate(R.id.fragment_payment, null, navigate)
+
         }
 
 

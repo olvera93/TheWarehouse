@@ -87,6 +87,9 @@
         android:label="@string/title_order"
         tools:layout="@layout/fragment_order" >
 
+        <action
+            android:id="@+id/action_order_to_payment"
+            app:destination="@+id/fragment_payment" />
 
 
     </fragment>
@@ -99,6 +102,23 @@
         <action
             android:id="@+id/action_cart_to_orderFragment"
             app:destination="@id/orderFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_payment"
+        android:name="org.shop.thewarehouse.ui.animation.PaymentFragment"
+        android:label="@string/Payment"
+        tools:layout="@layout/fragment_payment">
+
+        <action
+            android:id="@+id/action_payment_to_home"
+            app:destination="@id/navigation_home"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
 
