@@ -31,8 +31,8 @@ android {
         applicationId "org.shop.thewarehouse"
         minSdk 21
         targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.debug
@@ -125,6 +125,11 @@ dependencies {
     //    Shortbread
     implementation 'com.github.matthiasrobbers:shortbread:1.4.0'
     kapt 'com.github.matthiasrobbers:shortbread-compiler:1.4.0'
+
+    // Conekta
+    implementation('io.conekta:conektasdk:2.0') {
+        exclude group: 'com.android.support'
+    }
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

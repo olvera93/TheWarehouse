@@ -80,4 +80,36 @@
 
     <!-- Shorcut -->
     <string name="account">Cuenta</string>
+
+    <string name="downloading">Descargando…</string>
+    <string name="title_file_download">El APK esta descargandose</string>
+    <string name="storage_access_required">El permiso de almacenamiento es necesario.</string>
+    <string name="storage_permission_denied">El permiso de almacenamiento fue denegado.</string>
+    <string name="ok">OK</string>
+
+    <string name="new_version">Nueva version</string>
+    <string name="new_version_msg">Recomendamos actualizar a la nueva version</string>
+
+    <string name="btn_update">Actualizar</string>
+    <string name="btn_cancel">Cancelar</string>
+
+    <!--  CONEKTA  -->
+    <string name="XXXX">XXXX-XXXX-XXXX-XXXX</string>
+    <string name="Payment">Informacion de pago</string>
+    <string name="cardNumber">Card number:</string>
+    <string name="cardName">Name that appears on the card:</string>
+    <string name="expire">Expiration:</string>
+    <string name="cardCvc">Security code:</string>
+    <string name="mm">MM</string>
+    <string name="yyyy">AAAA</string>
+    <string name="name">Name</string>
+    <string name="cvc">CVC</string>
+    <string name="outputData">Output data:</string>
+    <string name="outputTokenData">Token output</string>
+    <string name="outputUUIDData">UUID output</string>
+    <string name="needInternetConnection">You need internet connection</string>
+    <string name="cardDataIncomplete">Incomplete card data!</string>
+    <string name="theTokenIdLabel">Token:</string>
+    <string name="errorLabel">Error:</string>
+    <string name="uuidDeviceLabel">UUID:</string>
 </resources>

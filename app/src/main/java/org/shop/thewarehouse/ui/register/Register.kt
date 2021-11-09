@@ -1,23 +1,28 @@
 package org.shop.thewarehouse.ui.register
 
 
+import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.ContentValues
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
 import android.location.LocationManager
+import android.location.LocationRequest
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -25,14 +30,25 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.google.android.gms.location.*
+import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityRegisterBinding
+import org.shop.thewarehouse.utils.DownloadController
 import org.shop.thewarehouse.utils.Utility
+import org.shop.thewarehouse.utils.Utility.buildAlertDialog
+import org.shop.thewarehouse.utils.Utility.checkSelfPermissionCompat
+import org.shop.thewarehouse.utils.Utility.requestPermissionsCompat
+import org.shop.thewarehouse.utils.Utility.shouldShowRequestPermissionRationaleCompat
 import org.shop.thewarehouse.view.NavigationActivity
 import org.shop.thewarehouse.view.PHOTO
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 import java.util.*
 
 class Register : AppCompatActivity() {
@@ -49,9 +65,11 @@ class Register : AppCompatActivity() {
         const val CHANNEL_SHOP = "TheWareHouse"
         var notificationId = 0
         const val PERMISSION_ID_LOCATION = 33
-
+        const val PERMISSION_REQUEST_STORAGE = 0
 
     }
+
+
 
     private val callback = object : LocationCallback() {
         override fun onLocationAvailability(p0: LocationAvailability?) {
@@ -119,6 +137,7 @@ class Register : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         db = FirebaseFirestore.getInstance()
+
 
 
 //agregando un nuevo cliete de localización
@@ -273,7 +292,7 @@ class Register : AppCompatActivity() {
     private fun requestLocation() {
         Log.d("TAG", "requestLocation: ")
         val requestLocation = LocationRequest()
-        requestLocation.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        requestLocation.priority = LocationRequest.QUALITY_HIGH_ACCURACY
         requestLocation.interval = 0
         requestLocation.fastestInterval = 0
         requestLocation.numUpdates = 1
@@ -323,5 +342,6 @@ class Register : AppCompatActivity() {
     }
 
      */
+
 
 }
