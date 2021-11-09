@@ -3,7 +3,11 @@ package org.shop.thewarehouse.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,8 +15,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
+import es.dmoral.toasty.Toasty
 import org.shop.thewarehouse.R
+import org.shop.thewarehouse.data.repository.ProductRepository
 import org.shop.thewarehouse.databinding.ActivityMainNavigationBinding
+import org.shop.thewarehouse.ui.ShoppingApplication
+import org.shop.thewarehouse.ui.home.HomeViewModel
+import org.shop.thewarehouse.ui.home.HomeViewModelFactory
 import shortbread.Shortcut
 
 class NavigationActivity : AppCompatActivity() {
@@ -23,13 +32,30 @@ class NavigationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
-
         super.onCreate(savedInstanceState)
+        val application by lazy { this.applicationContext as ShoppingApplication }
+        val repository : ProductRepository by lazy { application.productRepository }
+        var HVMFactory = HomeViewModelFactory(repository)
+        var homeViewModel = ViewModelProvider(this,HVMFactory)[HomeViewModel::class.java]
 
         binding = ActivityMainNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPref = this?.getPreferences(Context.MODE_PRIVATE) ?: return
+        homeViewModel.let{
+            it.getCart().observe(this) { cartItems ->
+                Log.d("cartitems: ",cartItems.size.toString())
+            }
+        }
+        homeViewModel.message.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                if(it=="true"){
+                    Toasty.success(this, R.string.productAdded, Toast.LENGTH_SHORT, true).show()
+                }else{
+                    Toasty.warning(this, R.string.productNotAdded, Toast.LENGTH_SHORT, true).show()
+                }
+            }
+        })
+        val sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
         val isLogin = sharedPref.getString("Email", "1")
 
         val navView: BottomNavigationView = binding.navView
@@ -46,7 +72,7 @@ class NavigationActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         if (isLogin == "1") {
-            var email = intent.getStringExtra("email")
+            val email = intent.getStringExtra("email")
             if (email != null) {
                 setText(email)
                 with(sharedPref.edit()) {

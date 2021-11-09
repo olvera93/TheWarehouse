@@ -1,35 +1,31 @@
 package org.shop.thewarehouse.ui.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.shop.thewarehouse.R
 import org.shop.thewarehouse.data.model.Product
 import org.shop.thewarehouse.databinding.ListItemProductBinding
 
 class ProductAdapter(private val shopInterface: ShopInterface) :
     ListAdapter<Product, ProductAdapter.ViewHolder>(ProductDiffCallback) {
-
-    class ViewHolder(private val binding: ListItemProductBinding,val shopInterface: ShopInterface) :
+    class ViewHolder(private val binding: ListItemProductBinding, val shopInterface: ShopInterface) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(product: Product) {
 
             binding.run {
                 this.product = product
-
+                //holder.shopRowBinding.executePendingBindings();
                 executePendingBindings()
             }
             itemView.setOnClickListener{
                 shopInterface.onItemClick(product)
             }
-
+            this.binding.addToCartBtn.setOnClickListener {
+                shopInterface.addItem(product)
+            }
         }
 
     }
@@ -46,6 +42,7 @@ class ProductAdapter(private val shopInterface: ShopInterface) :
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.bind(getItem(position))
+
     }
 
     interface ShopInterface{

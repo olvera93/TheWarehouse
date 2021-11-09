@@ -69,16 +69,20 @@
 
     <string name="hello_blank_fragment">This is an empty fragment :D</string>
     <!-- CART & PDP -->
-    <string name="addToCart">Add to cart</string>
+    <string name="addToCart">Add</string>
     <string name="title_description">Description</string>
     <string name="payment_btn">Proceed to checkout</string>
     <string name="quantityAbreviation">Qty.</string>
+    <string name="productAdded">Product added successfully to cart</string>
+    <string name="productNotAdded">Can\'t add more of that product</string>
+    <string name="empty_cart_title">Seems like Tito couldn\'t find anything inside your cart :(</string>
+    <string name="empty_cart_caption">Please add products to your cart :D</string>
 
     <string name="my_data">Mis datos</string>
     <string name="account_data">Account data</string>
     <string name="personal_information">Personal information</string>
     <string name="direction_information">Directions</string>
-    <string name="zip_information">Compras desde</string>
+    <string name="zip_information">Are you buying from </string>
 
 
     <!-- Shorcut -->

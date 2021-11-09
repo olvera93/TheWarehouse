@@ -43,6 +43,7 @@
                 android:id="@+id/productNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:text="@{homeViewModel.product.title}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
@@ -54,7 +55,8 @@
                 android:id="@+id/priceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/moneySign + Float.toString(homeViewModel.product.price)}"
+                android:textSize="18sp"
+                android:text="@{@string/moneySign + Double.toString(homeViewModel.product.price)}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
             <Space
@@ -66,12 +68,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_description"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+                android:textSize="16sp"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:textSize="14sp"
                 android:text="@{homeViewModel.product.description}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
 
@@ -84,10 +88,12 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to cart"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:fontFamily="@font/heebo"
                 android:onClick="@{() -> homeViewModel.addItemToCart(homeViewModel.product)}"
-                />
+                android:text="Add to cart"
+                android:textAppearance="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
         </LinearLayout>
 
     </ScrollView>

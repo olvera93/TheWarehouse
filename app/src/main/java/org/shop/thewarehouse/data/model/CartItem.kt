@@ -1,5 +1,7 @@
 package org.shop.thewarehouse.data.model
 
+import androidx.recyclerview.widget.DiffUtil
+
 class CartItem {
     var product: Product
     var quantity : Int = 0
@@ -18,6 +20,15 @@ class CartItem {
         if (quantity != other.quantity) return false
 
         return true
+    }
+    companion object itemCallback : DiffUtil.ItemCallback<CartItem>() {
+        override fun areItemsTheSame(oldItem: CartItem, newItem: CartItem): Boolean {
+            return oldItem.quantity == newItem.quantity
+        }
+
+        override fun areContentsTheSame(oldItem: CartItem, newItem: CartItem): Boolean {
+            return oldItem == newItem
+        }
     }
 
 

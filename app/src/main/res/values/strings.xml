@@ -67,11 +67,21 @@
     <string name="moneySign" translatable="false">$\u0020</string>
     <string name="hello_blank_fragment">Hola esto es un fragment vacio</string>
     <!-- PDP Y CARRITO -->
-    <string name="addToCart">Agregar al carrito</string>
+    <string name="addToCart">Agregar</string>
     <string name="title_description">Descripción</string>
     <string name="payment_btn">Proceder a pagar</string>
     <string name="quantityAbreviation">Cant.</string>
-
+    <string-array name="quantity_string_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string name="productAdded">Se ha agregado el producto al carrito</string>
+    <string name="productNotAdded">No se pueden agregar más al carrito</string>
+    <string name="empty_cart_title">Parece que Tito no encontró nada en tu carrito :(</string>
+    <string name="empty_cart_caption">Por favor agrega productos al carrito primero :D</string>
     <string name="my_data">Mis datos</string>
     <string name="account_data">Datos de cuenta</string>
     <string name="personal_information">Datos Personales</string>
