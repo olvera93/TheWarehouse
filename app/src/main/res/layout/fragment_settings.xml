@@ -19,28 +19,30 @@
             android:layout_height="wrap_content"
             tools:context=".ui.home.HomeFragment">
 
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image_profile"
-                android:layout_width="49dp"
-                android:layout_height="56dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.023"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                 app:srcCompat="@drawable/useroption"
                 app:strokeColor="?attr/colorSurface"
-                app:strokeWidth="5dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="6dp" />
-
+                app:strokeWidth="5dp" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_view_home"
                 android:layout_width="100dp"
                 android:layout_height="140dp"
+                android:layout_marginTop="@dimen/margin"
                 android:layout_marginEnd="@dimen/margin"
                 android:layout_marginStart="@dimen/margin"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -70,8 +72,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="89dp"
+                        android:layout_width="68dp"
+                        android:layout_height="79dp"
                         android:contentDescription="@string/have_an_account"
 
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,6 +94,7 @@
                 android:layout_height="140dp"
                 android:layout_marginEnd="@dimen/margin"
                 android:layout_marginStart="@dimen/margin_between_elements"
+                android:layout_marginTop="@dimen/margin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.053"                app:layout_constraintStart_toEndOf="@+id/card_view_home"
@@ -118,8 +121,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="89dp"
+                        android:layout_width="68dp"
+                        android:layout_height="79dp"
                         android:contentDescription="@string/have_an_account"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -138,6 +141,7 @@
                 android:layout_height="140dp"
                 android:layout_marginStart="@dimen/margin"
                 android:layout_marginEnd="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.053"
@@ -164,8 +168,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="89dp"
+                        android:layout_width="68dp"
+                        android:layout_height="79dp"
                         android:contentDescription="@string/have_an_account"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -187,10 +191,12 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/txt_user"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintBottom_toBottomOf="@+id/image_profile"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.233"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_bias="0.152"
+                app:layout_constraintStart_toEndOf="@+id/image_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.506" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

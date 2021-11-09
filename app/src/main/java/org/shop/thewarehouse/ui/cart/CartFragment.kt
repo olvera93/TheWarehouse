@@ -1,60 +1,83 @@
 package org.shop.thewarehouse.ui.cart
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.annotation.VisibleForTesting
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import org.intellij.lang.annotations.JdkConstants
 import org.shop.thewarehouse.R
+import org.shop.thewarehouse.data.model.CartItem
+import org.shop.thewarehouse.data.repository.ProductRepository
+import org.shop.thewarehouse.databinding.CartRowBinding
+import org.shop.thewarehouse.databinding.FragmentCartBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import org.shop.thewarehouse.ui.ShoppingApplication
+import org.shop.thewarehouse.ui.home.HomeViewModel
+import org.shop.thewarehouse.ui.home.HomeViewModelFactory
+import kotlin.math.round
 
-/**
- * A simple [Fragment] subclass.
- * Use the [cart.newInstance] factory method to
- * create an instance of this fragment.
- */
-class cart : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class CartFragment : Fragment(),CartListAdapter.CartInterface{
+    private val TAG = "CartFragment"
+    private val application by lazy { requireActivity().applicationContext as ShoppingApplication }
+    val repository : ProductRepository by lazy { application.productRepository }
+    lateinit var binding : FragmentCartBinding
+    lateinit var homeViewModel: HomeViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+        val HVMFactory = HomeViewModelFactory(repository)
+        homeViewModel = ViewModelProvider(requireActivity(),HVMFactory)[HomeViewModel::class.java]
+        binding = FragmentCartBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment cart.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            cart().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val cartListAdapter : CartListAdapter = CartListAdapter(this)
+        var emptyCartComponent = binding.emptyCartView
+        var paymentCart = binding.paymentCart
+        var itemsInCart = binding.itemsCart
+        binding.cartRecyclerView.adapter = cartListAdapter
+        binding.cartRecyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
+        homeViewModel.let{
+            it.getCart().observe(viewLifecycleOwner) { cartItems ->
+                Log.d("cartitems: ",cartItems.size.toString())
+                if(cartItems.size==0){
+                    emptyCartComponent.visibility= View.VISIBLE
+                    paymentCart.visibility = View.GONE
+                    itemsInCart.visibility = View.GONE
+                }else{
+                    emptyCartComponent.visibility = View.GONE
+                    paymentCart.visibility = View.VISIBLE
+                    itemsInCart.visibility = View.VISIBLE
                 }
+                cartListAdapter.submitList(cartItems)
             }
+        }
+        homeViewModel.let{
+            it.getTotalPrice().observe(viewLifecycleOwner){ total->
+                binding.orderTotalTextView.text = "Total: $"+round(total * 100) / 100
+            }
+        }
     }
+
+    override fun deleteItem(cartItem: CartItem) {
+        homeViewModel.removeItemFromCart(cartItem)
+    }
+
+    override fun changeQuantity(cartItem: CartItem, quantity: Int) {
+        homeViewModel.changeQuantity(cartItem,quantity)
+    }
+
 }

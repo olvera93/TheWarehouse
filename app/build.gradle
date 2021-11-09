@@ -118,11 +118,11 @@ dependencies {
     // Para que funcione firestore apartir de la API 30
     implementation "io.grpc:grpc-okhttp:1.32.2"
 
-    // Location
+    //  Location
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
     
-    //    Shortbread
+    //  Shortbread
     implementation 'com.github.matthiasrobbers:shortbread:1.4.0'
     kapt 'com.github.matthiasrobbers:shortbread-compiler:1.4.0'
 
@@ -130,6 +130,8 @@ dependencies {
     implementation('io.conekta:conektasdk:2.0') {
         exclude group: 'com.android.support'
     }
+    //  Toasty
+    implementation 'com.github.GrenderG:Toasty:1.5.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

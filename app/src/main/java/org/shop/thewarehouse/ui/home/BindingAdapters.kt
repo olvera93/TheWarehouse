@@ -5,6 +5,10 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import coil.load
 import org.shop.thewarehouse.R
+import android.widget.Spinner
+
+
+
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -15,4 +19,9 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             error(R.drawable.ic_broken_image)
         }
     }
+}
+
+@BindingAdapter("android:setVal")
+fun getSelectedSpinnerValue(spinner: Spinner, quantity: Int) {
+    spinner.setSelection(quantity - 1, true)
 }

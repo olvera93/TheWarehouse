@@ -3,6 +3,7 @@ package org.shop.thewarehouse.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
@@ -19,9 +20,15 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.ActivityCameraBinding
 import org.shop.thewarehouse.ui.register.Register
+import org.shop.thewarehouse.ui.settings.SettingsFragment
 import java.io.File
+import android.content.SharedPreferences
 
-const val PHOTO = "org.shop.thewarehouse"
+
+
+
+const val PHOTO = "org.shop.thewarehouse.PHOTO"
+const val PATH = "org.shop.thewarehouse.PATH"
 
 class CameraActivity : AppCompatActivity() {
 
@@ -59,7 +66,7 @@ class CameraActivity : AppCompatActivity() {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFile)
 
                 val fileProvider = FileProvider.getUriForFile(
-                    applicationContext,
+                    this@CameraActivity,
                     "org.shop.thewarehouse",
                     photoFile
                 )
@@ -81,10 +88,9 @@ class CameraActivity : AppCompatActivity() {
             btnNext.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString(PHOTO, photoFile.name)
+                bundle.putString(PATH, photoFile.absolutePath)
 
-
-                val intent = Intent(applicationContext, Register::class.java).apply {
-
+                val intent = Intent(this@CameraActivity, Register::class.java).apply {
                     putExtras(bundle)
                 }
                 startActivity(intent)
@@ -92,7 +98,7 @@ class CameraActivity : AppCompatActivity() {
                     R.transition.translate_left_side,
                     R.transition.translate_left_out
                 )
-
+                finish()
             }
 
         }

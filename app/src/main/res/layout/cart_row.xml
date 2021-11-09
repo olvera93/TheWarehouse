@@ -20,30 +20,28 @@
             android:layout_height="100dp"
             android:padding="8dp"
             android:src="@drawable/img"
+            app:imageUrl="@{cartItem.product.image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:imageUrl="@{cartItem.product.image}"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/productNameTextView"
-            android:layout_width="240dp"
+            android:layout_width="232dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:text="@{cartItem.product.title}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/productImageView"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@{cartItem.product.title}" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="@string/quantityAbreviation"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/productNameTextView"
@@ -53,41 +51,41 @@
             android:id="@+id/quantitySpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:dropDownWidth="40dp"
+            android:entries="@array/quantity_string_array"
+            android:minHeight="24dp"
+            android:setVal="@{cartItem.quantity}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/deleteProductButton"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/textView"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"/>
-            <!--app:setVal="@{cartItem.quantity}"
-           android:entries="@array/quantity_string_array"-->
-
+            app:layout_constraintTop_toTopOf="@+id/textView" />
 
 
         <ImageButton
             android:id="@+id/deleteProductButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
             android:background="?android:attr/selectableItemBackground"
-            android:padding="8dp"
+            android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@+id/quantitySpinner"
+            app:layout_constraintEnd_toStartOf="@+id/productTotalPriceTextView"
             app:layout_constraintStart_toEndOf="@+id/quantitySpinner"
             app:layout_constraintTop_toTopOf="@+id/quantitySpinner"
-            app:srcCompat="@drawable/ic_baseline_delete_24" />
+            app:srcCompat="@drawable/ic_baseline_delete_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/productTotalPriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{@string/moneySign+(String.valueOf(cartItem.product.price * cartItem.quantity)), default=$200}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            android:text="@{String.valueOf(cartItem.product.price * cartItem.quantity)}" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/productNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

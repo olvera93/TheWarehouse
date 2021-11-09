@@ -87,7 +87,7 @@
         tools:layout="@layout/fragment_order" />
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="org.shop.thewarehouse.ui.cart.cart"
+        android:name="org.shop.thewarehouse.ui.cart.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart">
         <action

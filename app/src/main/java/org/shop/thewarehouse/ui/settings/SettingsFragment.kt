@@ -13,6 +13,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import org.shop.thewarehouse.R
 import org.shop.thewarehouse.databinding.FragmentSettingsBinding
 import org.shop.thewarehouse.view.MainActivity
+import android.content.SharedPreferences
+import android.graphics.BitmapFactory
+import org.shop.thewarehouse.view.PATH
+
 
 class SettingsFragment : Fragment() {
 
@@ -46,6 +50,7 @@ class SettingsFragment : Fragment() {
                     putString("Email",email)
                     apply()
                 }
+
             } else{
                 val intent = Intent(requireActivity(), MainActivity::class.java)
                 startActivity(intent)
@@ -82,14 +87,20 @@ class SettingsFragment : Fragment() {
         return root
     }
 
+
     private fun setText(email:String?) {
         db= FirebaseFirestore.getInstance()
+
         if (email != null) {
+
             db.collection("users").document(email).get()
                 .addOnSuccessListener {
                         tasks->
                     binding.textUserName.text = "${getString(R.string.txt_hello)} ${tasks.get("usuario").toString()}"
-                    //binding.textEmail.text = tasks.get("email").toString()
+                    val path = tasks.get("path").toString()
+                    val takenImage = BitmapFactory.decodeFile(path)
+                    binding.imageProfile.setImageBitmap(takenImage)
+                    println(takenImage)
                 }
         }
     }
