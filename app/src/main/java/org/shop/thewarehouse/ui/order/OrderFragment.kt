@@ -4,22 +4,29 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import io.conekta.conektasdk.Card
 import io.conekta.conektasdk.Conekta
 import io.conekta.conektasdk.Token
+import kotlinx.android.synthetic.main.activity_main_navigation.*
 import org.json.JSONObject
 import org.shop.thewarehouse.R
+import org.shop.thewarehouse.ui.animation.PaymentFragment
+import android.text.TextWatcher
+import androidx.lifecycle.ViewModelProvider
+import org.shop.thewarehouse.data.repository.ProductRepository
 import org.shop.thewarehouse.databinding.FragmentOrderBinding
-
+import org.shop.thewarehouse.ui.ShoppingApplication
+import org.shop.thewarehouse.ui.home.HomeViewModel
+import org.shop.thewarehouse.ui.home.HomeViewModelFactory
+import kotlin.math.round
 
 class OrderFragment : Fragment() {
     private val PUBLIC_KEY = "key_eYvWV7gSDkNYXsmr"
@@ -38,18 +45,19 @@ class OrderFragment : Fragment() {
 
     private var _binding: FragmentOrderBinding? = null
     private val binding get() = _binding!!
+    private val application by lazy { requireActivity().applicationContext as ShoppingApplication }
+    val repository : ProductRepository by lazy { application.productRepository }
+    lateinit var homeViewModel: HomeViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentOrderBinding.inflate(inflater, container, false)
         _binding!!.paymentButton.setOnClickListener { onPressTokenizeButton() }
+        val HVMFactory = HomeViewModelFactory(repository)
+        homeViewModel = ViewModelProvider(requireActivity(),HVMFactory)[HomeViewModel::class.java]
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val isLogin = sharedPref.getString("Email", "1")
 
@@ -65,24 +73,55 @@ class OrderFragment : Fragment() {
         } else {
             setText(isLogin)
         }
-        val navigate = navOptions {
-            anim {
-                enter = R.anim.slide_in_right
-                exit = R.anim.slide_out_left
-                popEnter = R.anim.slide_in_left
-                popExit = R.anim.slide_out_right
+        binding.numberText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
+                checkRequiredFields()
+            }
+            override fun afterTextChanged(p0: Editable?) {}
+        })
+        binding.nameText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
+                checkRequiredFields()
+            }
+            override fun afterTextChanged(p0: Editable?) {}
+        })
+        binding.monthText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
+                checkRequiredFields()
+            }
+            override fun afterTextChanged(p0: Editable?) {}
+        })
+        homeViewModel.let{
+            it.getTotalPrice().observe(viewLifecycleOwner){ total->
+                binding.paymentQuantity.text = "${getString(R.string.paymentQuantity)} "+round(total * 100) / 100
             }
         }
-
+        binding.yearText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
+                checkRequiredFields()
+            }
+            override fun afterTextChanged(p0: Editable?) {}
+        })
         binding.paymentButton.setOnClickListener {
-            findNavController().navigate(R.id.fragment_payment, null, navigate)
-
+            var dialog = PaymentFragment()
+            dialog.show(requireFragmentManager(),"dialog")
         }
 
 
         val root: View = binding.root
         // Inflate the layout for this fragment
         return root
+    }
+    private fun checkRequiredFields() {
+        binding.paymentButton.isEnabled = binding.numberText.text.toString().isNotEmpty() &&
+                binding.nameText.text.toString().isNotEmpty() &&
+                binding.monthText.text.toString().isNotEmpty() &&
+                binding.yearText.text.toString().isNotEmpty() &&
+                binding.cvcText.text.toString().isNotEmpty()
     }
 
     private fun onPressTokenizeButton() {

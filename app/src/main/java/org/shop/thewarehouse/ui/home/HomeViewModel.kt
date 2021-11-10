@@ -62,4 +62,7 @@ class HomeViewModel(val repository: ProductRepository): ViewModel() {
     fun getTotalPrice():LiveData<Double>{
         return cartRepo.getTotalprice()
     }
+    fun resetCart() {
+        cartRepo.initCart()
+    }
 }

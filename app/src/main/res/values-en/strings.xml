@@ -77,7 +77,7 @@
     <string name="productNotAdded">Can\'t add more of that product</string>
     <string name="empty_cart_title">Seems like Tito couldn\'t find anything inside your cart :(</string>
     <string name="empty_cart_caption">Please add products to your cart :D</string>
-
+    <string name="exploreProducts">Explore products</string>
     <string name="my_data">Mis datos</string>
     <string name="account_data">Account data</string>
     <string name="personal_information">Personal information</string>
@@ -106,7 +106,7 @@
     <string name="Payment">Payment Information</string>
     <string name="cardNumber">Card number:</string>
     <string name="cardName">Name that appears on the card:</string>
-    <string name="expire">Expiration:</string>
+    <string name="expire">Expiration date:</string>
     <string name="cardCvc">Security code:</string>
     <string name="mm">MM</string>
     <string name="yyyy">AAAA</string>
@@ -120,7 +120,8 @@
     <string name="theTokenIdLabel">Token:</string>
     <string name="errorLabel">Error:</string>
     <string name="uuidDeviceLabel">UUID:</string>
-    <string name="pay">Pay</string>
+    <string name="pay">Pay now</string>
+    <string name="paymentQuantity">You will pay: $</string>
 
     <!-- Checkout-->
     <string name="txt_address">Your order will be shipped to:</string>

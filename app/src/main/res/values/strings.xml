@@ -85,6 +85,7 @@
     <string name="personal_information">Datos Personales</string>
     <string name="direction_information">Direcciones</string>
     <string name="zip_information">Compras desde</string>
+    <string name="exploreProducts">Explorar productos</string>
 
     <!-- Shorcut -->
     <string name="account">Cuenta</string>
@@ -103,14 +104,14 @@
 
     <!--  CONEKTA  -->
     <string name="XXXX">XXXX-XXXX-XXXX-XXXX</string>
-    <string name="Payment">Informacion de pago</string>
-    <string name="cardNumber">Card number:</string>
-    <string name="cardName">Name that appears on the card:</string>
-    <string name="expire">Expiration:</string>
-    <string name="cardCvc">Security code:</string>
+    <string name="Payment">Información de pago</string>
+    <string name="cardNumber">Numero de tarjeta:</string>
+    <string name="cardName">Nombre del propietario de la tarjeta:</string>
+    <string name="expire">Fecha de caducidad:</string>
+    <string name="cardCvc">Código de seguridad:</string>
     <string name="mm">MM</string>
     <string name="yyyy">AAAA</string>
-    <string name="name">Name</string>
+    <string name="name">Nombre</string>
     <string name="cvc">CVC</string>
     <string name="outputData">Output data:</string>
     <string name="outputTokenData">Token output</string>
@@ -120,11 +121,12 @@
     <string name="theTokenIdLabel">Token:</string>
     <string name="errorLabel">Error:</string>
     <string name="uuidDeviceLabel">UUID:</string>
-    <string name="pay">Pagar</string>
+    <string name="pay">Pagar ahora</string>
 
     <!-- Checkout-->
     <string name="txt_address">Tu orden sera enviada a:</string>
     <string name="back_to">Regresar</string>
     <string name="successful_payment">Pago exitoso</string>
+    <string name="paymentQuantity">La cantidad a pagar es de: $</string>
 
 </resources>

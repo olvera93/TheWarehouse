@@ -27,13 +27,10 @@ import kotlin.math.round
 
 
 class CartFragment : Fragment(),CartListAdapter.CartInterface{
-    private val TAG = "CartFragment"
     private val application by lazy { requireActivity().applicationContext as ShoppingApplication }
     val repository : ProductRepository by lazy { application.productRepository }
     lateinit var binding : FragmentCartBinding
     lateinit var homeViewModel: HomeViewModel
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,6 +60,9 @@ class CartFragment : Fragment(),CartListAdapter.CartInterface{
         binding.cartRecyclerView.adapter = cartListAdapter
         binding.cartRecyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
         binding.paymentButton.setOnClickListener {   findNavController().navigate(R.id.orderFragment, null, navigate) }
+        binding.exploreProductsbtn.setOnClickListener {
+            findNavController().navigate(R.id.navigation_home, null, navigate)
+        }
         homeViewModel.let{
             it.getCart().observe(viewLifecycleOwner) { cartItems ->
                 Log.d("cartitems: ",cartItems.size.toString())

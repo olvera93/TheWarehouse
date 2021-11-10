@@ -104,7 +104,7 @@
             app:destination="@id/orderFragment" />
     </fragment>
 
-    <fragment
+    <dialog
         android:id="@+id/fragment_payment"
         android:name="org.shop.thewarehouse.ui.animation.PaymentFragment"
         android:label="@string/Payment"
@@ -116,10 +116,9 @@
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"
-            app:popUpToInclusive="true" />
+            app:popExitAnim="@anim/slide_out_left"/>
 
-    </fragment>
+    </dialog>
 
 
     <fragment

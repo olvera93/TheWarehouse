@@ -14,27 +14,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/productImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <LinearLayout
+            android:id="@+id/productContainerCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/product_background"
             android:padding="8dp"
-            android:src="@drawable/img"
-            app:imageUrl="@{cartItem.product.image}"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/productNameTextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/productImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="4dp"
+                android:src="@drawable/img"
+                app:imageUrl="@{cartItem.product.image}" />
+
+        </LinearLayout>
 
 
         <TextView
             android:id="@+id/productNameTextView"
             android:layout_width="232dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@{cartItem.product.title}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/productImageView"
+            app:layout_constraintStart_toEndOf="@+id/productContainerCart"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

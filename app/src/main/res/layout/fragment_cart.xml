@@ -14,10 +14,11 @@
             android:visibility="gone"
             android:orientation="vertical">
             <TextView
-                android:paddingHorizontal="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
+                android:paddingHorizontal="16dp"
                 android:text="@string/empty_cart_title"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -26,7 +27,7 @@
             <ImageView
                 android:id="@+id/empty_cart_image"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="264dp"
                 android:layout_gravity="center"
                 android:src="@drawable/rata">
             </ImageView>
@@ -35,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
+                android:layout_marginBottom="8dp"
                 android:text="@string/empty_cart_caption"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -42,6 +44,22 @@
                 android:textStyle="bold"
                 android:paddingVertical="8dp"
                 android:paddingHorizontal="8dp"/>
+            <Button
+                android:id="@+id/exploreProductsbtn"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="@string/exploreProducts"
+                android:layout_marginBottom="8dp">
+            </Button>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/nv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/windowBackground"
+                app:menu="@menu/bottom_nav_menu"
+                android:visibility="invisible"/>
         </LinearLayout>
 
     <ScrollView

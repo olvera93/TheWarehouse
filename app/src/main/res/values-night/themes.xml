@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/Widget.Inventory.TextInputLayout.OutlinedBox</item>
         <item name="title">@style/Theme.AppCompat.NoActionBar</item>
-
+        <item name="android:textColorPrimary">@color/black</item>
     </style>
 
 </resources>
