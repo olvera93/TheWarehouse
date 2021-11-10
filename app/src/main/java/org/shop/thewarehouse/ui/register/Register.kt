@@ -1,3 +1,5 @@
+package org.shop.thewarehouse.ui.register
+
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
