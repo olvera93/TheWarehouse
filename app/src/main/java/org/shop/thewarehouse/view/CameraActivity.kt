@@ -65,7 +65,7 @@ class CameraActivity : AppCompatActivity() {
 
                 val fileProvider = FileProvider.getUriForFile(
                     this@CameraActivity,
-                    "org.shop.thewarehouse",
+                    "org.shop.warehouse",
                     photoFile
                 )
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
