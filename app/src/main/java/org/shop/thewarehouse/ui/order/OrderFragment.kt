@@ -73,55 +73,19 @@ class OrderFragment : Fragment() {
         } else {
             setText(isLogin)
         }
-        binding.numberText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
-                checkRequiredFields()
-            }
-            override fun afterTextChanged(p0: Editable?) {}
-        })
-        binding.nameText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
-                checkRequiredFields()
-            }
-            override fun afterTextChanged(p0: Editable?) {}
-        })
-        binding.monthText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
-                checkRequiredFields()
-            }
-            override fun afterTextChanged(p0: Editable?) {}
-        })
         homeViewModel.let{
             it.getTotalPrice().observe(viewLifecycleOwner){ total->
                 binding.paymentQuantity.text = "${getString(R.string.paymentQuantity)} "+round(total * 100) / 100
             }
         }
-        binding.yearText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(s: CharSequence, i: Int, i1: Int, i2: Int) {
-                checkRequiredFields()
-            }
-            override fun afterTextChanged(p0: Editable?) {}
-        })
         binding.paymentButton.setOnClickListener {
             var dialog = PaymentFragment()
             dialog.show(requireFragmentManager(),"dialog")
         }
 
-
         val root: View = binding.root
         // Inflate the layout for this fragment
         return root
-    }
-    private fun checkRequiredFields() {
-        binding.paymentButton.isEnabled = binding.numberText.text.toString().isNotEmpty() &&
-                binding.nameText.text.toString().isNotEmpty() &&
-                binding.monthText.text.toString().isNotEmpty() &&
-                binding.yearText.text.toString().isNotEmpty() &&
-                binding.cvcText.text.toString().isNotEmpty()
     }
 
     private fun onPressTokenizeButton() {
