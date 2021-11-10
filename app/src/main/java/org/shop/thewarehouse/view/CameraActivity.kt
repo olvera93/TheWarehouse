@@ -1,10 +1,8 @@
 package org.shop.thewarehouse.view
 
 
-import Register
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
@@ -24,8 +22,7 @@ import org.shop.thewarehouse.databinding.ActivityCameraBinding
 import org.shop.thewarehouse.ui.settings.SettingsFragment
 import java.io.File
 import android.content.SharedPreferences
-
-
+import org.shop.thewarehouse.ui.register.Register
 
 
 const val PHOTO = "org.shop.thewarehouse.PHOTO"
@@ -68,7 +65,7 @@ class CameraActivity : AppCompatActivity() {
 
                 val fileProvider = FileProvider.getUriForFile(
                     this@CameraActivity,
-                    "org.shop.thewarehouse",
+                    "org.shop.warehouse",
                     photoFile
                 )
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
