@@ -128,5 +128,9 @@
     <string name="back_to">Back</string>
     <string name="successful_payment">Successful payment</string>
 
+    <!-- Shortbreads-->
+    <string name="account_shortbread">Account</string>
+    <string name="shareapp_shortbread">Share App</string>
+
 
 </resources>

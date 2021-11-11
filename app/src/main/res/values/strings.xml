@@ -129,4 +129,9 @@
     <string name="successful_payment">Pago exitoso</string>
     <string name="paymentQuantity">La cantidad a pagar es de: $</string>
 
+    <!-- Shortbreads-->
+    <string name="account_shortbread">Cuenta</string>
+    <string name="shareapp_shortbread">Compartir app</string>
+
+
 </resources>

@@ -91,13 +91,13 @@ class NavigationActivity : AppCompatActivity() {
 
     }
 
-    @Shortcut(id = "Cuenta", icon = R.drawable.ic_profile, shortLabel = "Cuenta")
+    @Shortcut(id = "Cuenta", icon = R.drawable.ic_profile, shortLabelResName = R.string.account_shortbread.toString())
     fun account() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main_navigation)
         navController.navigate(R.id.fragment_data_profile)
     }
 
-    @Shortcut(id = "Share App", icon = R.drawable.ic_share, shortLabel = "Share App")
+    @Shortcut(id = "Share App", icon = R.drawable.ic_share, shortLabelResName = R.string.shareapp_shortbread.toString())
     fun shareApp() {
         val share = Intent.createChooser(Intent().apply {
             action = Intent.ACTION_SEND

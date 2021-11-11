@@ -9,7 +9,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_user"
         android:layout_width="354dp"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:layout_marginTop="@dimen/margin"
         android:hint="@string/txt_user"
         android:maxLength="20"
@@ -31,7 +31,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_name"
         android:layout_width="354dp"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:layout_marginTop="@dimen/margin"
         android:hint="@string/txt_name"
         android:maxLength="25"
@@ -53,7 +53,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_lastname"
         android:layout_width="354dp"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:hint="@string/txt_lastname"
         android:layout_marginTop="@dimen/margin"
         android:maxLength="25"
@@ -75,7 +75,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_email"
         android:layout_width="354dp"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:hint="@string/txt_email"
         android:layout_marginTop="@dimen/margin"
         android:maxLength="25"
@@ -96,7 +96,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_password"
         android:layout_width="354dp"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:hint="@string/txt_password"
         android:layout_marginTop="@dimen/margin"
         android:maxLength="25"
