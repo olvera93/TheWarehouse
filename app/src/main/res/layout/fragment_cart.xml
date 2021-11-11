@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ui.cart.CartFragment">
+        <LinearLayout
+            android:id="@+id/empty_cart_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="16dp"
+                android:text="@string/empty_cart_title"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/empty_cart_image"
+                android:layout_width="match_parent"
+                android:layout_height="264dp"
+                android:layout_gravity="center"
+                android:src="@drawable/rata">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:layout_marginBottom="8dp"
+                android:text="@string/empty_cart_caption"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="8dp"/>
+            <Button
+                android:id="@+id/exploreProductsbtn"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="@string/exploreProducts"
+                android:layout_marginBottom="8dp">
+            </Button>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/nv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/windowBackground"
+                app:menu="@menu/bottom_nav_menu"
+                android:visibility="invisible"/>
+        </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/items_cart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:fillViewport="true"
+        android:fadeScrollbars="false"
+        android:theme="@style/Theme.TheWarehouse"
+        android:scrollbarThumbVertical="@color/accentVariant">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cartRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="7"
+            tools:listitem="@layout/cart_row" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/payment_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/orderTotalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="Total: $ 0"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/paymentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/payment_btn" />
+    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu"
+        android:visibility="invisible"/>
+</LinearLayout>

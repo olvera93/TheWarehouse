@@ -11,7 +11,7 @@ data class Product(
     @PrimaryKey(autoGenerate = true) val localId: Int,
     val id: Int,
     val title: String,
-    val price: Float,
+    val price: Double,
     val description: String,
     val category: String,
     val image: String

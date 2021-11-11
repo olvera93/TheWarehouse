@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "471166934832-fji5eabm3oqeahrj21rsbpguvf963bl1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.shop.thewarehouse",
+            "certificate_hash": "c4224121cc4536aead2ad94e0e89663b2f9cb6ad"
+          }
+        },
+        {
           "client_id": "471166934832-h09eij654kvhj7r90o9u8qitkp11fldq.apps.googleusercontent.com",
           "client_type": 3
         }

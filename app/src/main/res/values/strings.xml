@@ -3,12 +3,10 @@
 
     <string name="prefs_file">com.shop.thewarehouse.PREFERENCE_FILE_KEY</string>
 
-
     <string name="button_home">Inicio</string>
     <string name="button_profile">Perfil</string>
-
     <string name="button_logout">Salir</string>
-
+    <string name="button_menu">Mas</string>
 
     <string name="login">Regístrate en TheWarehouse</string>
     <string name="register_user">Usar correo electrónico</string>
@@ -25,6 +23,15 @@
     <string name="foto_de_perfil">Foto de perfil</string>
     <string name="ponga_su_mejor_foto">Foto</string>
     <string name="su_foto_le_ayuda_para_qu_sus_contactos_pueda_identificarle_m_s_r_pido">Hola</string>
+    <string name="txt_hello">Hola</string>
+    <string name="txt_account">Cuenta</string>
+    <string name="txt_orders">Pedidos</string>
+
+    <string name="txt_account_user">Usuario</string>
+    <string name="txt_account_email">Correo</string>
+    <string name="txt_account_name">Nombre</string>
+    <string name="txt_account_last_name">Apellido</string>
+
 
     <string name="register_login">Iniciar Sesión</string>
     <string name="have_an_account">¿Ya tienes una cuenta?</string>
@@ -43,10 +50,83 @@
     <string name="shop_description">Notificaciones acerca de nuevos usuarios</string>
 
 
+    <!-- Titulos de fragments y navigation -->
     <string name="title_activity_main_navigation">MainNavigation</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Inicio</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_more">Más</string>
+    <string name="title_notifications">Notificaciones</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_detail">Detalle de producto</string>
+    <string name="title_cart">Carrito</string>
+    <string name="title_order">Resumen de pedido</string>
 
     <string name="product_list_title">Nuestros mejores productos</string>
+    <string name="moneySign" translatable="false">$\u0020</string>
+    <string name="hello_blank_fragment">Hola esto es un fragment vacio</string>
+    <!-- PDP Y CARRITO -->
+    <string name="addToCart">Agregar</string>
+    <string name="title_description">Descripción</string>
+    <string name="payment_btn">Proceder a pagar</string>
+    <string name="quantityAbreviation">Cant.</string>
+    <string-array name="quantity_string_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string name="productAdded">Se ha agregado el producto al carrito</string>
+    <string name="productNotAdded">No se pueden agregar más al carrito</string>
+    <string name="empty_cart_title">Parece que Tito no encontró nada en tu carrito :(</string>
+    <string name="empty_cart_caption">Por favor agrega productos al carrito primero :D</string>
+    <string name="my_data">Mis datos</string>
+    <string name="account_data">Datos de cuenta</string>
+    <string name="personal_information">Datos Personales</string>
+    <string name="direction_information">Direcciones</string>
+    <string name="zip_information">Compras desde</string>
+    <string name="exploreProducts">Explorar productos</string>
+
+    <!-- Shorcut -->
+    <string name="account">Cuenta</string>
+
+    <string name="downloading">Descargando…</string>
+    <string name="title_file_download">El APK esta descargandose</string>
+    <string name="storage_access_required">El permiso de almacenamiento es necesario.</string>
+    <string name="storage_permission_denied">El permiso de almacenamiento fue denegado.</string>
+    <string name="ok">OK</string>
+
+    <string name="new_version">Nueva version</string>
+    <string name="new_version_msg">Recomendamos actualizar a la nueva version</string>
+
+    <string name="btn_update">Actualizar</string>
+    <string name="btn_cancel">Cancelar</string>
+
+    <!--  CONEKTA  -->
+    <string name="XXXX">XXXX-XXXX-XXXX-XXXX</string>
+    <string name="Payment">Información de pago</string>
+    <string name="cardNumber">Numero de tarjeta:</string>
+    <string name="cardName">Nombre del propietario de la tarjeta:</string>
+    <string name="expire">Fecha de caducidad:</string>
+    <string name="cardCvc">Código de seguridad:</string>
+    <string name="mm">MM</string>
+    <string name="yyyy">AAAA</string>
+    <string name="name">Nombre</string>
+    <string name="cvc">CVC</string>
+    <string name="outputData">Output data:</string>
+    <string name="outputTokenData">Token output</string>
+    <string name="outputUUIDData">UUID output</string>
+    <string name="needInternetConnection">You need internet connection</string>
+    <string name="cardDataIncomplete">Incomplete card data!</string>
+    <string name="theTokenIdLabel">Token:</string>
+    <string name="errorLabel">Error:</string>
+    <string name="uuidDeviceLabel">UUID:</string>
+    <string name="pay">Pagar ahora</string>
+
+    <!-- Checkout-->
+    <string name="txt_address">Tu orden sera enviada a:</string>
+    <string name="back_to">Regresar</string>
+    <string name="successful_payment">Pago exitoso</string>
+    <string name="paymentQuantity">La cantidad a pagar es de: $</string>
+
 </resources>

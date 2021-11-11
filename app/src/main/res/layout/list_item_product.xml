@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -8,25 +7,31 @@
         <variable
             name="product"
             type="org.shop.thewarehouse.data.model.Product" />
+        <variable
+            name="shopInterface"
+            type="org.shop.thewarehouse.ui.home.ProductAdapter.ShopInterface" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="16dp"
+        android:layout_height="152dp"
+        android:paddingHorizontal="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{()->shopInterface.onItemClick(product)}"
         android:transitionName="@{Integer.toString(product.id)}">
 
         <TextView
             android:id="@+id/product_name"
-            android:layout_width="200dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="220dp"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:layout_height="60dp"
             android:text="@{product.title}"
-            android:textAppearance="?attr/textAppearanceListItemSecondary"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline2"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/product_image_container"
+            app:layout_constraintVertical_bias="0.0"
             tools:text="WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive" />
 
         <TextView
@@ -34,34 +39,74 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            android:text="@{Float.toString(product.price)}"
+            android:text="@{@string/moneySign + Double.toString(product.price)}"
             android:textAppearance="?attr/textAppearanceListItem"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/product_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addToCartLayout"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/product_name"
             app:layout_constraintTop_toBottomOf="@id/product_name"
-            tools:text="114" />
+            tools:text="$ 114" />
 
-
-        <ImageView
-            android:id="@+id/product_image"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/product_image_container"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:contentDescription="item"
+            android:padding="4dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/product_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            ><ImageView
+            android:id="@+id/product_image"
+            android:layout_width="100dp"
+            android:background="@drawable/roundcorner_transparent"
+            android:layout_height="100dp"
+            android:contentDescription="item"
+            app:imageUrl="@{product.image}"
+            />
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.3" />
+            app:layout_constraintGuide_percent=".35" />
 
+        <FrameLayout
+            android:id="@+id/addToCartLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/product_name"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/product_price"
+            app:layout_constraintTop_toBottomOf="@+id/product_name">
 
+            <Button
+                android:id="@+id/addToCartBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->shopInterface.addItem(product)}"
+                android:background="@drawable/my_ripple"
+                android:drawableLeft="@drawable/ic_baseline_add_shopping_cart_24"
+                android:paddingHorizontal="8dp"
+                android:text="@string/addToCart"
+                android:textColor="@color/colorPrimaryDark" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/browser_actions_divider_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

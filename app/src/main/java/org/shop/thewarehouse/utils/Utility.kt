@@ -5,6 +5,9 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import org.shop.thewarehouse.R
@@ -30,5 +33,27 @@ object Utility {
         this.view.setBackgroundColor(colorInt)
         return this
     }
+
+    fun AppCompatActivity.checkSelfPermissionCompat(permission: String) =
+        ActivityCompat.checkSelfPermission(this, permission)
+
+    fun AppCompatActivity.shouldShowRequestPermissionRationaleCompat(permission: String) =
+        ActivityCompat.shouldShowRequestPermissionRationale(this, permission)
+
+    fun AppCompatActivity.requestPermissionsCompat(
+        permissionsArray: Array<String>,
+        requestCode: Int
+    ) {
+        ActivityCompat.requestPermissions(this, permissionsArray, requestCode)
+    }
+
+    fun buildAlertDialog(context: Context, resTitle: Int, resMessage: Int): AlertDialog {
+        val alertDialog = AlertDialog.Builder(context).create()
+        alertDialog.setTitle(context.getString(resTitle))
+        alertDialog.setMessage(context.getString(resMessage))
+        alertDialog.setCancelable(false)
+        return alertDialog
+    }
+
 
 }

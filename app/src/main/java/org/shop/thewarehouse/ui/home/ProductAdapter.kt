@@ -8,26 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
 import org.shop.thewarehouse.data.model.Product
 import org.shop.thewarehouse.databinding.ListItemProductBinding
 
-class ProductAdapter() :
+class ProductAdapter(private val shopInterface: ShopInterface) :
     ListAdapter<Product, ProductAdapter.ViewHolder>(ProductDiffCallback) {
-
-
-    class ViewHolder(private val binding: ListItemProductBinding) :
+    class ViewHolder(private val binding: ListItemProductBinding, val shopInterface: ShopInterface) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(product: Product) {
 
             binding.run {
                 this.product = product
+                //holder.shopRowBinding.executePendingBindings();
                 executePendingBindings()
             }
-        }
-
-        companion object {
-            fun from(parent: ViewGroup): ViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ListItemProductBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+            itemView.setOnClickListener{
+                shopInterface.onItemClick(product)
+            }
+            this.binding.addToCartBtn.setOnClickListener {
+                shopInterface.addItem(product)
             }
         }
 
@@ -36,12 +33,22 @@ class ProductAdapter() :
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(viewGroup)
+        val layoutInflater = LayoutInflater.from(viewGroup.context)
+        val binding = ListItemProductBinding.inflate(layoutInflater, viewGroup, false)
+        return ViewHolder(binding,shopInterface)
+
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.bind(getItem(position))
+
+    }
+
+    interface ShopInterface{
+        fun addItem(product: Product)
+        fun onItemClick(product: Product)
+
     }
 }
 

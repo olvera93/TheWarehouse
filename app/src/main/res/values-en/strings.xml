@@ -7,8 +7,9 @@
 
     <string name="button_home">Inicio</string>
     <string name="button_profile">Profile</string>
-
     <string name="button_logout">Logout</string>
+    <string name="button_menu">More</string>
+
 
 
     <string name="login">Sign up for TheWarehouse</string>
@@ -26,6 +27,16 @@
     <string name="foto_de_perfil">Profile photo</string>
     <string name="ponga_su_mejor_foto">Photo</string>
     <string name="su_foto_le_ayuda_para_qu_sus_contactos_pueda_identificarle_m_s_r_pido">Hola</string>
+    <string name="txt_hello">Hello</string>
+    <string name="txt_account">Account</string>
+    <string name="txt_orders">Orders</string>
+    <string name="txt_account_user">User</string>
+    <string name="txt_account_email">Email</string>
+    <string name="txt_account_name">Name</string>
+    <string name="txt_account_last_name">LastName</string>
+
+
+
 
     <string name="register_login">Log in</string>
     <string name="have_an_account">Already have an account?</string>
@@ -48,8 +59,74 @@
     <string name="title_activity_main_navigation">MainNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="title_more">More</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
     <string name="product_list_title">Our best products</string>
+    <string name="title_detail">Product Detail</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_order">Order summary</string>
+
+    <string name="hello_blank_fragment">This is an empty fragment :D</string>
+    <!-- CART & PDP -->
+    <string name="addToCart">Add</string>
+    <string name="title_description">Description</string>
+    <string name="payment_btn">Proceed to checkout</string>
+    <string name="quantityAbreviation">Qty.</string>
+    <string name="productAdded">Product added successfully to cart</string>
+    <string name="productNotAdded">Can\'t add more of that product</string>
+    <string name="empty_cart_title">Seems like Tito couldn\'t find anything inside your cart :(</string>
+    <string name="empty_cart_caption">Please add products to your cart :D</string>
+    <string name="exploreProducts">Explore products</string>
+    <string name="my_data">Mis datos</string>
+    <string name="account_data">Account data</string>
+    <string name="personal_information">Personal information</string>
+    <string name="direction_information">Directions</string>
+    <string name="zip_information">Are you buying from </string>
+
+
+    <!-- Shorcut -->
+    <string name="account">Account</string>
+
+    <!--Update-->
+    <string name="downloading">Downloading…</string>
+    <string name="title_file_download">APK is downloading</string>
+    <string name="storage_access_required">Storage access is required to downloading the file.</string>
+    <string name="storage_permission_denied">Storage permission request was denied.</string>
+    <string name="ok">OK</string>
+
+    <string name="new_version">New version</string>
+    <string name="new_version_msg">We recommend installing the update</string>
+
+    <string name="btn_update">Update</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <!--  CONEKTA  -->
+    <string name="XXXX">XXXX-XXXX-XXXX-XXXX</string>
+    <string name="Payment">Payment Information</string>
+    <string name="cardNumber">Card number:</string>
+    <string name="cardName">Name that appears on the card:</string>
+    <string name="expire">Expiration date:</string>
+    <string name="cardCvc">Security code:</string>
+    <string name="mm">MM</string>
+    <string name="yyyy">AAAA</string>
+    <string name="name">Name</string>
+    <string name="cvc">CVC</string>
+    <string name="outputData">Output data:</string>
+    <string name="outputTokenData">Token output</string>
+    <string name="outputUUIDData">UUID output</string>
+    <string name="needInternetConnection">You need internet connection</string>
+    <string name="cardDataIncomplete">Incomplete card data!</string>
+    <string name="theTokenIdLabel">Token:</string>
+    <string name="errorLabel">Error:</string>
+    <string name="uuidDeviceLabel">UUID:</string>
+    <string name="pay">Pay now</string>
+    <string name="paymentQuantity">You will pay: $</string>
+
+    <!-- Checkout-->
+    <string name="txt_address">Your order will be shipped to:</string>
+    <string name="back_to">Back</string>
+    <string name="successful_payment">Successful payment</string>
 
 
 </resources>
