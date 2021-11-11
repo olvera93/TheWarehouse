@@ -49,13 +49,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    companion object{
+    companion object {
         const val PERMISSION_ID = 34
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
         const val PERMISSION_REQUEST_STORAGE = 0
         const val urlCode = "https://github.com/olvera93/TheWarehouse/raw/master/versionCode.txt"
-        const val urlApp = "https://github.com/olvera93/TheWarehouse/blob/develop/app/release/app-release.apk?raw=true"
+        const val urlApp =
+            "https://github.com/olvera93/TheWarehouse/blob/develop/app/release/app-release.apk?raw=true"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,16 +64,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         downloadController = DownloadController(this, urlApp)
-        checkUpdate()
         // Dentro de onCreate
         FirebaseApp.initializeApp(this)
         auth = Firebase.auth
 
-        
         handleClick()
+        checkUpdate()
 
     }
-
 
 
     private fun handleClick() {
@@ -80,9 +79,12 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
 
             btnRegisterUser.setOnClickListener {
-                if (checkCameraPermission()){
+                if (checkCameraPermission()) {
                     openCamera()
-                    overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
+                    overridePendingTransition(
+                        R.transition.translate_left_side,
+                        R.transition.translate_left_out
+                    )
                     finish()
                 } else {
                     requestPermission()
@@ -92,7 +94,11 @@ class MainActivity : AppCompatActivity() {
             btnRegisterLogin.setOnClickListener {
                 val intent = Intent(applicationContext, LoginEmail::class.java)
                 startActivity(intent)
-                overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
+                overridePendingTransition(
+                    R.transition.translate_left_side,
+                    R.transition.translate_left_out
+                )
+                finish()
             }
 
             btnGoogle.setOnClickListener {
@@ -142,9 +148,12 @@ class MainActivity : AppCompatActivity() {
                     val user = auth.currentUser
                     updateUI(user, null)
                     val intent = Intent(applicationContext, NavigationActivity::class.java)
-                    intent.putExtra("email",idToken)
+                    intent.putExtra("email", idToken)
                     startActivity(intent)
-                    overridePendingTransition(R.transition.translate_left_side, R.transition.translate_left_out)
+                    overridePendingTransition(
+                        R.transition.translate_left_side,
+                        R.transition.translate_left_out
+                    )
                     finish()
 
                 } else {
@@ -165,7 +174,6 @@ class MainActivity : AppCompatActivity() {
             binding.btnGoogle.visibility = View.VISIBLE
         }
     }
-
 
 
     override fun onRequestPermissionsResult(
@@ -189,9 +197,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun openCamera(){
+    private fun openCamera() {
         val intent = Intent(this, CameraActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun requestPermission() {
@@ -231,7 +240,8 @@ class MainActivity : AppCompatActivity() {
             )
         }
     }
-    private fun checkUpdate(){
+
+    private fun checkUpdate() {
         Thread {
             val remoteVersionCode = readUrlFile(urlCode)
             if (remoteVersionCode !== null) {
@@ -293,7 +303,6 @@ class MainActivity : AppCompatActivity() {
         }
         return data
     }
-
 
 
 }
